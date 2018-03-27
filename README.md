@@ -18,18 +18,3 @@ The naming convention is as follows:
 | mckessoncds/ci:durham  |        |        |        |        |
 
 
-Building
---------
-
-Update the Dockerfile and rebuild using
-
-```
-% docker build . -t mckessoncds/ci:<tag-name>
-```
-
-Then push to dockerhub
-
-```
-% docker login
-% docker push mckessoncds/ci:<tag-name>
-```
