@@ -8,13 +8,13 @@ language support (Ruby, Node), and required test tools (ChefDK, phantomjs,
 codeclimate).
 
 
-The naming convention is as follows:
+The naming convention is as follows (alphabetically increasing city names):
 
 | Name:tag               | Ruby   | Node   | Yarn   | ChefDK |
 |------------------------|--------|--------|--------|--------|
-| mckessoncds/ci:austin  | 2.3.6  | 8.10.0 | 1.5.1  | 1.6.1  |
-| mckessoncds/ci:boston  |        |        |        |        |
-| mckessoncds/ci:chicago |        |        |        |        |
-| mckessoncds/ci:durham  |        |        |        |        |
+| mckessoncds/ci-docker-images:austin  | 2.3.6  | 8.10.0 | 1.5.1  | 1.6.1  |
+| mckessoncds/ci-docker-images:boston  |        |        |        |        |
+| mckessoncds/ci-docker-images:chicago |        |        |        |        |
+| mckessoncds/ci-docker-images:durham  |        |        |        |        |
 
 
