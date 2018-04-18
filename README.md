@@ -13,8 +13,6 @@ The naming convention is as follows (alphabetically increasing city names):
 | Name:tag                             | Ruby   | Node   | Yarn   | ChefDK |
 |--------------------------------------|--------|--------|--------|--------|
 | mckessoncds/ci-docker-images:austin  | 2.3.6  | 8.10.0 | 1.5.1  | 1.6.1  |
-| mckessoncds/ci-docker-images:boston  |        |        |        |        |
+| mckessoncds/ci-docker-images:buffalo | 2.3.7  | 8.11.1 | 1.5.1  | 1.6.1  |
 | mckessoncds/ci-docker-images:chicago |        |        |        |        |
 | mckessoncds/ci-docker-images:durham  |        |        |        |        |
-
-
