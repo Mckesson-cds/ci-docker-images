@@ -4,7 +4,7 @@ MAINTAINER developer@mckesson.com
 ENV NODE_VERSION 8.11.1
 ENV YARN_VERSION 1.5.1
 ENV PHANTOMJS_VERSION 2.1.1
-ENV CHEFDK_VERSION 1.6.1
+ENV CHEFDK_VERSION 1.6.11
 ENV DOCKERIZE_VERSION v0.6.0
 
 # Node, see: https://github.com/nodejs/docker-node/blob/master/8/stretch/Dockerfile
