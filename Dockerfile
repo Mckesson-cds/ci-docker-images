@@ -1,4 +1,4 @@
-FROM ruby:2.3.7-stretch
+FROM ruby:2.5.1-stretch
 MAINTAINER developer@mckesson.com
 
 ENV NODE_VERSION 8.11.1
