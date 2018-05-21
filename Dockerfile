@@ -6,6 +6,14 @@ ENV YARN_VERSION 1.5.1
 ENV PHANTOMJS_VERSION 2.1.1
 ENV CHEFDK_VERSION 1.6.11
 ENV DOCKERIZE_VERSION v0.6.0
+ENV JAVA_HOME=/jdk1.6.0_45
+ENV PATH="${JAVA_HOME}/bin:${PATH}"
+
+# Java
+ADD ./src/jdk-6u45-linux-x64.bin ./jdk-6u45-linux-x64.bin
+RUN chmod a+x ./jdk-6u45-linux-x64.bin \
+  && ./jdk-6u45-linux-x64.bin \
+  && rm ./jdk-6u45-linux-x64.bin
 
 # Node, see: https://github.com/nodejs/docker-node/blob/master/8/stretch/Dockerfile
 RUN groupadd --gid 1000 node \
