@@ -13,6 +13,7 @@ The naming convention is as follows (alphabetically increasing city names):
 | mckessoncds/ci-docker-images:durham  | 2.3.7 | 8.11.1 | 1.5.1 | 1.6.11 |   6u45  |
 | mckessoncds/ci-docker-images:eugene  | 2.5.1 | 8.11.1 | 1.5.1 | 1.6.11 |   6u45  |
 | mckessoncds/ci-docker-images:fresno  |       |        |       |        |         |
+| mckessoncds/ci-docker-images:garland |       |        |       |        |         |
 
 
 ## Java JDK
