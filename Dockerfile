@@ -11,9 +11,9 @@ ENV PATH="${JAVA_HOME}/bin:${PATH}"
 
 # Java
 ADD ./src/jdk-6u45-linux-x64.bin ./jdk-6u45-linux-x64.bin
-RUN chmod a+x ./jdk-6u45-linux-x64.bin \
-  && ./jdk-6u45-linux-x64.bin \
-  && rm ./jdk-6u45-linux-x64.bin
+RUN chmod a+x ./jdk-6u45-linux-x64.bin
+RUN ./jdk-6u45-linux-x64.bin
+RUN rm ./jdk-6u45-linux-x64.bin
 
 # Node, see: https://github.com/nodejs/docker-node/blob/master/8/stretch/Dockerfile
 RUN groupadd --gid 1000 node \
