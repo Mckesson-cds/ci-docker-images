@@ -92,4 +92,4 @@ RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSI
   && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
 # Misc.
-RUN apt-get update && apt-get install -y zip unzip
+RUN apt-get update && apt-get install -y zip unzip jq
