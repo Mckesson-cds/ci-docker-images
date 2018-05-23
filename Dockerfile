@@ -15,6 +15,9 @@ RUN chmod a+x ./jdk-6u45-linux-x64.bin
 RUN ./jdk-6u45-linux-x64.bin
 RUN rm ./jdk-6u45-linux-x64.bin
 
+# Java test runner
+RUN apt-get update && apt-get install -y ant
+
 # Node, see: https://github.com/nodejs/docker-node/blob/master/8/stretch/Dockerfile
 RUN groupadd --gid 1000 node \
   && useradd --uid 1000 --gid node --shell /bin/bash --create-home node
