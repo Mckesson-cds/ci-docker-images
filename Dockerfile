@@ -1,8 +1,8 @@
 FROM ruby:2.3.7-stretch
-MAINTAINER developer@mckesson.com
+LABEL maintainer="kevin.olbrich@mckesson.com"
 
 ENV NODE_VERSION 8.11.2
-ENV YARN_VERSION 1.5.1
+ENV YARN_VERSION 1.7.0
 ENV PHANTOMJS_VERSION 2.1.1
 ENV CHEFDK_VERSION 1.6.11
 ENV DOCKERIZE_VERSION v0.6.0
@@ -10,7 +10,7 @@ ENV JAVA_HOME=/jdk1.6.0_45
 ENV PATH="${JAVA_HOME}/bin:${PATH}"
 
 # Java
-ADD ./src/jdk-6u45-linux-x64.bin ./jdk-6u45-linux-x64.bin
+COPY ./src/jdk-6u45-linux-x64.bin ./jdk-6u45-linux-x64.bin
 RUN chmod a+x ./jdk-6u45-linux-x64.bin
 RUN ./jdk-6u45-linux-x64.bin
 RUN rm ./jdk-6u45-linux-x64.bin

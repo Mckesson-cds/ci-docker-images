@@ -12,7 +12,7 @@ The naming convention is as follows (alphabetically increasing city names):
 | mckessoncds/ci-docker-images:chicago | 2.3.7 | 8.11.1 | 1.5.1 | 1.6.11 |         |
 | mckessoncds/ci-docker-images:durham  | 2.3.7 | 8.11.1 | 1.5.1 | 1.6.11 | 6u45    |
 | mckessoncds/ci-docker-images:eugene  |       |        |       |        |         |
-| mckessoncds/ci-docker-images:fresno  | 2.3.7 | 8.11.2 | 1.5.1 | 1.6.11 | 6u45    |
+| mckessoncds/ci-docker-images:fresno  | 2.3.7 | 8.11.2 | 1.7.0 | 1.6.11 | 6u45    |
 | mckessoncds/ci-docker-images:garland |       |        |       |        |         |
 | mckessoncds/ci-docker-images:houston |       |        |       |        |         |
 | mckessoncds/ci-docker-images:ithaca  |       |        |       |        |         |
