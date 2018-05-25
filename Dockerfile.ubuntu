@@ -1,4 +1,4 @@
-FROM ubuntu:xenial
+FROM ubuntu:16.04
 LABEL maintainer="kevin.olbrich@mckesson.com"
 
 # Java
@@ -12,7 +12,16 @@ RUN rm ./jdk-6u45-linux-x64.bin
 RUN apt-get update && apt-get install -y ant
 
 # Misc.
-RUN apt-get update && apt-get install -y zip unzip jq wget curl
+RUN apt-get update && apt-get install -y \
+  build-essential \
+  curl \
+  git \
+  libcurl3 libcurl3-gnutls libcurl4-openssl-dev \
+  libpq-dev \
+  jq \
+  unzip \
+  wget \
+  zip
 
 # Dockerize
 ENV DOCKERIZE_VERSION v0.6.0
