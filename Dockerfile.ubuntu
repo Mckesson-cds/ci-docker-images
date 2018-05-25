@@ -44,12 +44,6 @@ RUN apt-get update && apt-get install -y software-properties-common
 RUN apt-add-repository ppa:brightbox/ruby-ng
 RUN apt-get update && apt-get install -y ruby$RUBY_VERSION ruby$RUBY_VERSION-dev ruby-switch
 RUN ruby-switch --set ruby$RUBY_VERSION
-RUN ruby -v
-
-# Ruby gems
-ENV RUBYGEMS_VERSION 2.7.7
-RUN gem update --system $RUBYGEMS_VERSION
-RUN gem --version
 
 # ChefDK
 ENV OS_VERSION 16.04
@@ -116,3 +110,9 @@ RUN set -ex \
   && ln -s /opt/yarn-v$YARN_VERSION/bin/yarn /usr/local/bin/yarn \
   && ln -s /opt/yarn-v$YARN_VERSION/bin/yarnpkg /usr/local/bin/yarnpkg \
   && rm yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz
+
+# Ruby gems & bundler
+ENV RUBYGEMS_VERSION 2.7.7
+ENV BUNDLER_VERSION 1.16.2
+RUN gem update --system $RUBYGEMS_VERSION
+RUN gem install bundler -v $BUNDLER_VERSION
