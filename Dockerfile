@@ -8,6 +8,7 @@ ENV CHEFDK_VERSION 1.6.11
 ENV DOCKERIZE_VERSION v0.6.0
 ENV JAVA_HOME=/jdk1.6.0_45
 ENV PATH="${JAVA_HOME}/bin:${PATH}"
+ENV RUBYGEMS_VERSION 2.7.7
 
 # Java
 COPY ./src/jdk-6u45-linux-x64.bin ./jdk-6u45-linux-x64.bin
@@ -93,3 +94,5 @@ RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSI
 
 # Misc.
 RUN apt-get update && apt-get install -y zip unzip jq
+
+RUN gem update --system $RUBYGEMS_VERSION
