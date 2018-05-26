@@ -16,12 +16,16 @@ RUN apt-get update && apt-get install -y \
   build-essential \
   curl \
   git \
+  jq \
   libcurl3 libcurl3-gnutls libcurl4-openssl-dev \
   libpq-dev \
-  jq \
+  tzdata \
   unzip \
   wget \
   zip
+
+# set timezone to America/New_York
+RUN ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime && dpkg-reconfigure -f noninteractive tzdata
 
 # Dockerize
 ENV DOCKERIZE_VERSION v0.6.0
