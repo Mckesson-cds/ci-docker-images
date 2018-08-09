@@ -17,9 +17,10 @@ The naming convention is as follows (alphabetically increasing city names):
 | mckessoncds/ci-docker-images:garland        | 2.3.7 |    2.7.7 |         | 8.11.3 | 1.7.0 | 1.6.11 |    6u45 |
 | mckessoncds/ci-docker-images:garland-ubuntu | 2.3.7 |    2.7.7 |  1.16.2 | 8.11.3 | 1.7.0 | 1.6.11 |    6u45 |
 | mckessoncds/ci-docker-images:houston        | 2.5.1 |    2.7.7 |  1.16.2 | 8.11.3 | 1.7.0 | 1.6.11 |    6u45 |
-| mckessoncds/ci-docker-images:ithaca         |       |          |         |        |       |        |         |
+| mckessoncds/ci-docker-images:ithaca         | 2.3.7 |    2.7.7 |  1.16.3 | 8.11.3 | 1.9.4 | 1.6.11 |    6u45 |
 | mckessoncds/ci-docker-images:juneau         |       |          |         |        |       |        |         |
 | mckessoncds/ci-docker-images:kannapolis     |       |          |         |        |       |        |         |
+| mckessoncds/ci-docker-images:leicester      |       |          |         |        |       |        |         |
 
 Java JDK
 --------
