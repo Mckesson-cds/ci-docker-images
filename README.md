@@ -22,6 +22,27 @@ The naming convention is as follows (alphabetically increasing city names):
 | mckessoncds/ci-docker-images:kannapolis     |       |          |         |        |       |        |         |
 | mckessoncds/ci-docker-images:leicester      |       |          |         |        |       |        |         |
 
+
+Docker for Mac
+--------------
+
+https://store.docker.com/editions/community/docker-ce-desktop-mac
+
+- Download, drag to Applications, run it and log in.
+
+
+To Prepare a New Image
+----------------------
+
+- git co -b <name of next unused city - see above>
+- Fill in the new image resource versions above. 
+- Add a new city name to the alphabetical sequence.
+- Make the version changes in the Dockerfile
+- git add/commit/push
+- When the new image has been built, run `docker run -it
+    mckessoncds/ci-docker-images:<image-name> /bin/bash`
+  Note: This will download the image.
+
 Java JDK
 --------
 
