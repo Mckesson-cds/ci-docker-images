@@ -35,13 +35,16 @@ To Prepare a New Image
 ----------------------
 
 - git co -b <name of next unused city - see above>
-- Fill in the new image resource versions above. 
-- Add a new city name to the alphabetical sequence.
-- Make the version changes in the Dockerfile
-- git add/commit/push
-- When the new image has been built, run `docker run -it
-    mckessoncds/ci-docker-images:<image-name> /bin/bash`
-  Note: This will download the image.
+- Edit this README.md.
+  - Document the new image resource versions above. 
+  - Add a new city name to the end of the alphabetical sequence above.
+- Make the version changes in the Dockerfile.
+- `git add .` / `git commit` / `git push --set-upstream origin <branch-name>`
+- When the new image has been built, run `docker run -it mckessoncds/ci-docker-images:<image-name> /bin/bash`
+  Note: This will download the image and open a shell.
+- When the image loads, confirm the resource versions.
+- `git tag <branch-name>`
+- `git push --tags` # This will trigger a build of the docker image for CircleCI to use.
 
 Java JDK
 --------
