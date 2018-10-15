@@ -17,9 +17,34 @@ The naming convention is as follows (alphabetically increasing city names):
 | mckessoncds/ci-docker-images:garland        | 2.3.7 |    2.7.7 |         | 8.11.3 | 1.7.0 | 1.6.11 |    6u45 |
 | mckessoncds/ci-docker-images:garland-ubuntu | 2.3.7 |    2.7.7 |  1.16.2 | 8.11.3 | 1.7.0 | 1.6.11 |    6u45 |
 | mckessoncds/ci-docker-images:houston        | 2.5.1 |    2.7.7 |  1.16.2 | 8.11.3 | 1.7.0 | 1.6.11 |    6u45 |
-| mckessoncds/ci-docker-images:ithaca         |       |          |         |        |       |        |         |
+| mckessoncds/ci-docker-images:ithaca         | 2.3.7 |    2.7.7 |  1.16.3 | 8.11.3 | 1.9.4 | 1.6.11 |    6u45 |
 | mckessoncds/ci-docker-images:juneau         |       |          |         |        |       |        |         |
 | mckessoncds/ci-docker-images:kannapolis     |       |          |         |        |       |        |         |
+| mckessoncds/ci-docker-images:leicester      |       |          |         |        |       |        |         |
+
+
+Docker for Mac
+--------------
+
+https://store.docker.com/editions/community/docker-ce-desktop-mac
+
+- Download, drag to Applications, run it and log in.
+
+
+To Prepare a New Image
+----------------------
+
+- git co -b <name of next unused city - see above>
+- Edit this README.md.
+  - Document the new image resource versions above. 
+  - Add a new city name to the end of the alphabetical sequence above.
+- Make the version changes in the Dockerfile.
+- `git add .` / `git commit` / `git push --set-upstream origin <branch-name>`
+- When the new image has been built, run `docker run -it mckessoncds/ci-docker-images:<image-name> /bin/bash`
+  Note: This will download the image and open a shell.
+- When the image loads, confirm the resource versions.
+- `git tag <branch-name>`
+- `git push --tags` # This will trigger a build of the docker image for CircleCI to use.
 
 Java JDK
 --------
