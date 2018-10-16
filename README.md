@@ -5,22 +5,24 @@ These are public images to run CI (continuous integration) building and testing 
 
 The naming convention is as follows (alphabetically increasing city names):
 
-| Name:tag                                    | Ruby  | Rubygems | Bundler | Node   | Yarn  | ChefDK | JavaJDK |
-|---------------------------------------------|------:|---------:|--------:|-------:|------:|-------:|--------:|
-| mckessoncds/ci-docker-images:austin         | 2.3.6 |    2.7.5 |         | 8.10.0 | 1.5.1 |  1.6.1 |         |
-| mckessoncds/ci-docker-images:buffalo        | 2.3.7 |    2.7.5 |         | 8.11.1 | 1.5.1 |  1.6.1 |         |
-| mckessoncds/ci-docker-images:chicago        | 2.3.7 |    2.7.5 |         | 8.11.1 | 1.5.1 | 1.6.11 |         |
-| mckessoncds/ci-docker-images:durham         | 2.3.7 |    2.7.5 |         | 8.11.1 | 1.5.1 | 1.6.11 |    6u45 |
-| ~~mckessoncds/ci-docker-images:eugene~~     |       |          |         |        |       |        |         |
-| mckessoncds/ci-docker-images:fresno         | 2.3.7 |    2.7.7 |         | 8.11.2 | 1.7.0 | 1.6.11 |    6u45 |
-| mckessoncds/ci-docker-images:fresno-ubuntu  | 2.3.7 |    2.7.7 |  1.16.2 | 8.11.2 | 1.7.0 | 1.6.11 |    6u45 |
-| mckessoncds/ci-docker-images:garland        | 2.3.7 |    2.7.7 |         | 8.11.3 | 1.7.0 | 1.6.11 |    6u45 |
-| mckessoncds/ci-docker-images:garland-ubuntu | 2.3.7 |    2.7.7 |  1.16.2 | 8.11.3 | 1.7.0 | 1.6.11 |    6u45 |
-| mckessoncds/ci-docker-images:houston        | 2.5.1 |    2.7.7 |  1.16.2 | 8.11.3 | 1.7.0 | 1.6.11 |    6u45 |
-| mckessoncds/ci-docker-images:ithaca         | 2.3.7 |    2.7.7 |  1.16.3 | 8.11.3 | 1.9.4 | 1.6.11 |    6u45 |
-| mckessoncds/ci-docker-images:juneau         |       |          |         |        |       |        |         |
-| mckessoncds/ci-docker-images:kannapolis     |       |          |         |        |       |        |         |
-| mckessoncds/ci-docker-images:leicester      |       |          |         |        |       |        |         |
+| Name:tag                                    | Ruby  | Rubygems | Bundler | Node   | Yarn   | ChefDK | JavaJDK |
+|---------------------------------------------|------:|---------:|--------:|-------:|------: |-------:|--------:|
+| mckessoncds/ci-docker-images:austin         | 2.3.6 |    2.7.5 |         | 8.10.0 |  1.5.1 |  1.6.1 |         |
+| mckessoncds/ci-docker-images:buffalo        | 2.3.7 |    2.7.5 |         | 8.11.1 |  1.5.1 |  1.6.1 |         |
+| mckessoncds/ci-docker-images:chicago        | 2.3.7 |    2.7.5 |         | 8.11.1 |  1.5.1 | 1.6.11 |         |
+| mckessoncds/ci-docker-images:durham         | 2.3.7 |    2.7.5 |         | 8.11.1 |  1.5.1 | 1.6.11 |    6u45 |
+| ~~mckessoncds/ci-docker-images:eugene~~     |       |          |         |        |        |        |         |
+| mckessoncds/ci-docker-images:fresno         | 2.3.7 |    2.7.7 |         | 8.11.2 |  1.7.0 | 1.6.11 |    6u45 |
+| mckessoncds/ci-docker-images:fresno-ubuntu  | 2.3.7 |    2.7.7 |  1.16.2 | 8.11.2 |  1.7.0 | 1.6.11 |    6u45 |
+| mckessoncds/ci-docker-images:garland        | 2.3.7 |    2.7.7 |         | 8.11.3 |  1.7.0 | 1.6.11 |    6u45 |
+| mckessoncds/ci-docker-images:garland-ubuntu | 2.3.7 |    2.7.7 |  1.16.2 | 8.11.3 |  1.7.0 | 1.6.11 |    6u45 |
+| mckessoncds/ci-docker-images:houston        | 2.5.1 |    2.7.7 |  1.16.2 | 8.11.3 |  1.7.0 | 1.6.11 |    6u45 |
+| mckessoncds/ci-docker-images:ithaca         | 2.3.7 |    2.7.7 |  1.16.3 | 8.11.3 |  1.9.4 | 1.6.11 |    6u45 |
+| mckessoncds/ci-docker-images:juneau         | 2.3.7 |    2.7.7 |  1.16.6 | 8.12.0 | 1.10.1 | 1.6.11 |    6u45 |
+| mckessoncds/ci-docker-images:kannapolis     |       |          |         |        |        |        |         |
+| mckessoncds/ci-docker-images:leicester      |       |          |         |        |        |        |         |
+| mckessoncds/ci-docker-images:minneapolis    |       |          |         |        |        |        |         |
+| mckessoncds/ci-docker-images:new-orleans    |       |          |         |        |        |        |         |
 
 
 Docker for Mac
