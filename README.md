@@ -20,9 +20,10 @@ The naming convention is as follows (alphabetically increasing city names):
 | mckessoncds/ci-docker-images:ithaca         | 2.3.7 |    2.7.7 |  1.16.3 | 8.11.3 |  1.9.4 | 1.6.11 |    6u45 |
 | mckessoncds/ci-docker-images:juneau         | 2.3.7 |    2.7.7 |  1.16.6 | 8.12.0 | 1.10.1 | 1.6.11 |    6u45 |
 | mckessoncds/ci-docker-images:kannapolis     | 2.5.1 |    2.7.7 |  1.16.6 | 8.12.0 | 1.10.1 | 1.6.11 |    6u45 |
-| mckessoncds/ci-docker-images:leicester      |       |          |         |        |        |        |         |
+| mckessoncds/ci-docker-images:leicester      | 2.3.8 |    2.7.7 |  1.16.6 | 8.12.0 | 1.10.1 | 1.6.11 |    6u45 |
 | mckessoncds/ci-docker-images:minneapolis    |       |          |         |        |        |        |         |
 | mckessoncds/ci-docker-images:new-orleans    |       |          |         |        |        |        |         |
+| mckessoncds/ci-docker-images:orlando        |       |          |         |        |        |        |         |
 
 
 Docker for Mac
@@ -38,7 +39,7 @@ To Prepare a New Image
 
 - git co -b <name of next unused city - see above>
 - Edit this README.md.
-  - Document the new image resource versions above. 
+  - Document the new image resource versions above.
   - Add a new city name to the end of the alphabetical sequence above.
 - Make the version changes in the Dockerfile.
 - `git add .` / `git commit` / `git push --set-upstream origin <branch-name>`
