@@ -39,11 +39,6 @@ RUN curl --compressed -L --output dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.g
 RUN curl -O https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 RUN dpkg -i google-chrome-stable_current_amd64.deb; apt-get -fy install
 
-# PhantomJS
-ENV PHANTOMJS_VERSION 2.1.1
-RUN curl --compressed -L --output /usr/local/bin/phantomjs https://s3.amazonaws.com/circle-downloads/phantomjs-$PHANTOMJS_VERSION \
-  && chmod a+x /usr/local/bin/phantomjs
-
 # Ruby
 ENV RUBY_VERSION 2.3
 RUN apt-add-repository ppa:brightbox/ruby-ng \
