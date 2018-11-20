@@ -22,7 +22,7 @@ The naming convention is as follows (alphabetically increasing city names):
 | mckessoncds/ci-docker-images:kannapolis     | 2.5.1 |    2.7.7 |  1.16.6 | 8.12.0 | 1.10.1 | 1.6.11 |    6u45 |
 | mckessoncds/ci-docker-images:leicester      | 2.3.8 |    2.7.7 |  1.16.6 | 8.12.0 | 1.10.1 | 1.6.11 |    6u45 |
 | mckessoncds/ci-docker-images:minneapolis    | 2.3.8 |    2.7.7 |  1.16.6 | 8.12.0 | 1.10.1 | 1.6.11 |    6u45 |
-| mckessoncds/ci-docker-images:new-orleans    |       |          |         |        |        |        |         |
+| mckessoncds/ci-docker-images:new-orleans    | 2.5.1 |    2.7.8 |  1.17.1 | 10.13.0| 1.12.3 | 1.6.11 |    6u45 |
 | mckessoncds/ci-docker-images:orlando        |       |          |         |        |        |        |         |
 | mckessoncds/ci-docker-images:portland       |       |          |         |        |        |        |         |
 
