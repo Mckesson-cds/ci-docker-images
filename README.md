@@ -49,7 +49,7 @@ To Prepare a New Image
 - When the new image has been built, run `docker run -it mckessoncds/ci-docker-images:{{image-name}} /bin/bash`
   Note: This will download the image and open a shell.
 - When the image loads, confirm the resource versions.
-- `git tag <branch-name>`
+- `git tag {{branch-name}}`
 - `git push --tags` # This will trigger a build of the docker image for CircleCI to use.
 
 Java JDK
