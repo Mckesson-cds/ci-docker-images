@@ -57,13 +57,13 @@ RUN curl --compressed -L --output chefdk_$CHEFDK_VERSION-1_amd64.deb https://pac
   && dpkg -i chefdk_$CHEFDK_VERSION-1_amd64.deb \
   && rm chefdk_$CHEFDK_VERSION-1_amd64.deb
 
-ENV NODE_VERSION 10.14.0
+ENV NODE_VERSION 10.15.1
 
 RUN curl -sL https://deb.nodesource.com/setup_10.x| bash - \
   && apt-get install -y nodejs=$NODE_VERSION-1nodesource1
 
 # Yarn
-ENV YARN_VERSION 1.12.3
+ENV YARN_VERSION 1.13.0
 RUN curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
   && echo "deb https://dl.yarnpkg.com/debian/ stable main" > /etc/apt/sources.list.d/yarn.list \
   && apt-get update \
@@ -77,5 +77,5 @@ RUN curl --compressed -L https://codeclimate.com/downloads/test-reporter/test-re
 RUN echo 'gem: --no-document' >> ~/.gemrc
 ENV RUBYGEMS_VERSION 2.7.8
 RUN gem update --system $RUBYGEMS_VERSION
-ENV BUNDLER_VERSION 1.17.1
+ENV BUNDLER_VERSION 1.17.3
 RUN gem install bundler -v $BUNDLER_VERSION
