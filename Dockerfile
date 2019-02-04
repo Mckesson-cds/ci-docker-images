@@ -39,6 +39,10 @@ RUN curl --compressed -L --output dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.g
 RUN curl -O https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 RUN dpkg -i google-chrome-stable_current_amd64.deb; apt-get -fy install
 
+ENV CHROMEDRIVER_VERSION 2.45
+RUN curl -O https://chromedriver.storage.googleapis.com/2.46/chromedriver_linux64.zip
+RUN unzip chromedriver_linux64.zip -d bin && rm chromedriver_linux64.zip
+
 # PhantomJS
 ENV PHANTOMJS_VERSION 2.1.1
 RUN curl --compressed -L --output /usr/local/bin/phantomjs https://s3.amazonaws.com/circle-downloads/phantomjs-$PHANTOMJS_VERSION \
