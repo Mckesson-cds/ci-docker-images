@@ -46,8 +46,8 @@ To Prepare a New Image
   - Document the new image resource versions above.
   - Add a new city name to the end of the alphabetical sequence above.
 - Make the version changes in the Dockerfile.
-- `git add .` / `git commit` / `git push --set-upstream origin &lt;branch-name&gt;`
-- When the new image has been built, run `docker run -it mckessoncds/ci-docker-images:&lt;image-name&gt; /bin/bash`
+- `git add .` / `git commit` / `git push --set-upstream origin \<branch-name\>`
+- When the new image has been built, run `docker run -it mckessoncds/ci-docker-images:\<image-name\> /bin/bash`
   Note: This will download the image and open a shell.
 - When the image loads, confirm the resource versions.
 - `git tag <branch-name>`
