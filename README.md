@@ -5,7 +5,6 @@ These are public images to run CI (continuous integration) building and testing 
 
 The naming convention is as follows (alphabetically increasing city names):
 
-|                                             |       |          |         |         |        |        |         |        | chrome |
 | Name:tag                                    | Ruby  | Rubygems | Bundler |  Node   |  Yarn  | ChefDK | JavaJDK | Chrome | driver |
 |---------------------------------------------|------:|---------:|--------:|--------:|-------:|-------:|--------:|-------:|-------:|
 | mckessoncds/ci-docker-images:austin         | 2.3.6 |   2.7.5  |         | 8.10.0  |  1.5.1 |  1.6.1 |         |        |        |
