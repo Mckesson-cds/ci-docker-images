@@ -59,4 +59,3 @@ Java JDK
 The JDK download is here:
 
 http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase6-419409.html
-              |

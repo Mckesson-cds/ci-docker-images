@@ -39,7 +39,7 @@ RUN curl --compressed -L --output dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.g
 RUN curl -O https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 RUN dpkg -i google-chrome-stable_current_amd64.deb; apt-get -fy install
 
-ENV CHROMEDRIVER_VERSION 2.45
+ENV CHROMEDRIVER_VERSION 2.46
 RUN curl -O https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
 RUN unzip chromedriver_linux64.zip -d /usr/local/bin && rm chromedriver_linux64.zip
 
