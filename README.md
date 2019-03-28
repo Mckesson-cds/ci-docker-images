@@ -26,8 +26,9 @@ The naming convention is as follows (alphabetically increasing city names):
 | orlando        |       |          |         |         |        |        |         |        |              |
 | portland       | 2.5.1 |   2.7.8  |  1.17.1 | 10.14.0 | 1.12.3 | 1.6.11 |  6u45   |        |              |
 | quebec         | 2.5.x |   2.7.8  |  1.17.3 | 10.15.1 | 1.13.0 | 1.6.11 |  6u45   |   72   |    2.46      |
-| rochester      |       |          |         |         |        |        |         |        |              |
+| rochester      | 2.5.x |   3.0.3  |   2.0.1 | 10.15.2 | 1.15.2 | 1.6.11 |  6u45   |   73   | 73.0.3683.68 |
 | seattle        |       |          |         |         |        |        |         |        |              |
+| tempe          |       |          |         |         |        |        |         |        |              |
 
 
 Docker for Mac
