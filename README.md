@@ -3,7 +3,7 @@ Docker Images for CI
 
 These are public images to run CI (continuous integration) building and testing for an Ruby/Node application. The intention is create baseline images that CI will use to run and test our application. These images have the required language support (Ruby, Node), and required test tools (ChefDK, phantomjs, codeclimate).
 
-The naming convention is as follows (alphabetically increasing city names):
+Add a row to this list with the tag (Name) of the current date and record the resource version changes:
 
 | Name:tag       | Ruby  | Rubygems | Bundler |  Node   |  Yarn  | ChefDK | JavaJDK | Chrome | chromedriver  |
 |----------------|------:|---------:|--------:|--------:|-------:|-------:|--------:|-------:|--------------:|
@@ -29,7 +29,8 @@ The naming convention is as follows (alphabetically increasing city names):
 | rochester      | 2.5.x |   3.0.3  |   2.0.1 | 10.15.2 | 1.15.2 | 1.6.11 |  6u45   |   73   | 73.0.3683.68  |
 | 2019.05.02     | 2.5.x |   3.0.3  |   2.0.1 | 10.15.2 | 1.15.2 | 1.6.11 |  6u45   |   74   |  74.0.3729.6  |
 | 2019.06.11     | 2.6.x |   3.0.3  |   2.0.1 | 10.16.0 | 1.16.0 | 1.6.11 |  6u45   |   75   |  75.0.3770.8  |
-| 2019.08.05	 | 2.6.x |   3.0.3  |   2.0.2 | 10.16.1	| 1.17.3 | 1.6.11 |  6u45   |   76   |  76.0.3809.68 |
+| 2019.08.05     | 2.6.x |   3.0.3  |   2.0.2 | 10.16.1	| 1.17.3 | 1.6.11 |  6u45   |   76   |  76.0.3809.68 |
+| 2019.10.01     | 2.6.x |   3.0.6  |   2.0.2 | 10.16.3 | 1.19.0 | 1.6.11 |  6u45   |   77   |  77.0.3865.40 |
 
 
 Docker for Mac
@@ -43,7 +44,7 @@ https://store.docker.com/editions/community/docker-ce-desktop-mac
 To Prepare a New Image
 ----------------------
 
-- git co -b <name of next unused city - see above>
+- git co -b <current date, matching the tag in the new row above>
 - Edit this README.md.
   - Document the new image resource versions above.
 - Make the version changes in the Dockerfile.
