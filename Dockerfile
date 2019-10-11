@@ -35,7 +35,7 @@ RUN curl --compressed -L --output dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.g
   && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
   && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
-ENV CHROMEDRIVER_VERSION 76.0.3809.68
+ENV CHROMEDRIVER_VERSION 77.0.3865.120
 RUN curl -O https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
 RUN unzip chromedriver_linux64.zip -d /usr/local/bin && rm chromedriver_linux64.zip
 
@@ -61,13 +61,13 @@ RUN curl --compressed -L --output chefdk_$CHEFDK_VERSION-1_amd64.deb https://pac
   && dpkg -i chefdk_$CHEFDK_VERSION-1_amd64.deb \
   && rm chefdk_$CHEFDK_VERSION-1_amd64.deb
 
-ENV NODE_VERSION 10.16.1
+ENV NODE_VERSION 10.16.3
 
 RUN curl -sL https://deb.nodesource.com/setup_10.x| bash - \
   && apt-get install -y nodejs=$NODE_VERSION-1nodesource1
 
 # Yarn
-ENV YARN_VERSION 1.17.3
+ENV YARN_VERSION 1.19.1
 RUN curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
   && echo "deb https://dl.yarnpkg.com/debian/ stable main" > /etc/apt/sources.list.d/yarn.list \
   && apt-get update \
@@ -79,7 +79,7 @@ RUN curl --compressed -L https://codeclimate.com/downloads/test-reporter/test-re
 
 # Ruby gems & bundler
 RUN echo 'gem: --no-document' >> ~/.gemrc
-ENV RUBYGEMS_VERSION 3.0.3
+ENV RUBYGEMS_VERSION 3.0.6
 RUN gem update --system $RUBYGEMS_VERSION
 ENV BUNDLER_VERSION 2.0.2
 RUN gem install bundler -v $BUNDLER_VERSION
