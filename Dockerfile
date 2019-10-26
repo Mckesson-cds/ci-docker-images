@@ -64,7 +64,7 @@ RUN curl --compressed -L --output chefdk_$CHEFDK_VERSION-1_amd64.deb https://pac
 ENV NODE_VERSION 10.16.3
 
 RUN curl -sL https://deb.nodesource.com/setup_10.x| bash - \
-  && apt-get install -y nodejs=$NODE_VERSION
+  && apt-get install -y nodejs=$NODE_VERSION-1
 
 # Yarn
 ENV YARN_VERSION 1.19.1
