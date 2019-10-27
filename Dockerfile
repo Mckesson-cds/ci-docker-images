@@ -35,7 +35,7 @@ RUN curl --compressed -L --output dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.g
   && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
   && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
-ENV CHROMEDRIVER_VERSION 77.0.3865.40
+ENV CHROMEDRIVER_VERSION 78.0.3904.70
 RUN curl -O https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
 RUN unzip chromedriver_linux64.zip -d /usr/local/bin && rm chromedriver_linux64.zip
 
@@ -61,10 +61,10 @@ RUN curl --compressed -L --output chefdk_$CHEFDK_VERSION-1_amd64.deb https://pac
   && dpkg -i chefdk_$CHEFDK_VERSION-1_amd64.deb \
   && rm chefdk_$CHEFDK_VERSION-1_amd64.deb
 
-ENV NODE_VERSION 10.16.3
+ENV NODE_VERSION 12.13.0
 
-RUN curl -sL https://deb.nodesource.com/setup_10.x| bash - \
-  && apt-get install -y nodejs=$NODE_VERSION-1nodesource1
+RUN curl -sL https://deb.nodesource.com/setup_12.x| bash - \
+  && apt-get install -y nodejs
 
 # Yarn
 ENV YARN_VERSION 1.19.1
