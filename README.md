@@ -32,7 +32,7 @@ The naming convention is as follows (alphabetically increasing city names):
 | 2019.08.05     | 2.6.x |   3.0.3  |   2.0.2 | 10.16.1 | 1.17.3 | 1.6.11 |  6u45   | 76.0.3809.68  |
 | 2019.10.11     | 2.6.x |   3.0.6  |   2.0.2 | 10.16.3 | 1.19.1 | 1.6.11 |  6u45   | 77.0.3865.40  |
 | 2019.10.26     | 2.6.x |   3.0.6  |   2.0.2 | 12.13.0 | 1.19.1 | 1.6.11 |  6u45   | 78.0.3904.70  |
-
+| 2019.12.30     | 2.6.x |   3.0.6  |   2.1.2 | 12.14.0 | 1.21.1 | 1.6.11 |  6u45   | 79.0.3945.36  |
 
 Docker for Mac
 --------------
@@ -45,7 +45,7 @@ https://store.docker.com/editions/community/docker-ce-desktop-mac
 To Prepare a New Image
 ----------------------
 
-- git co -b <name of next unused city - see above>
+- git co -b <current date>
 - Edit this README.md.
   - Document the new image resource versions above.
 - Make the version changes in the Dockerfile.  NOTE: Check http://chromedriver.chromium.org/home to determine the current stable chromedriver version.  Also, the ruby version with be the latest patchlevel ruby-ng release for the specified major and minor version in the Dockerfile. E.g., https://launchpad.net/~brightbox/+archive/ubuntu/ruby-ng/+index?field.series_filter=xenial
