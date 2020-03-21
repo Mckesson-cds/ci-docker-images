@@ -34,8 +34,11 @@ The naming convention is as follows (alphabetically increasing city names):
 | 2019.10.26     | 2.6.x |   3.0.6  |   2.0.2 | 12.13.0 | 1.19.1 | 1.6.11 |  6u45   | 78.0.3904.70  |
 | 2019.12.30     | 2.6.x |   3.0.6  |   2.1.2 | 12.14.0 | 1.21.1 | 1.6.11 |  6u45   | 79.0.3945.36  |
 | 2020.01.07     | 2.6.x |   3.0.6  |   2.1.2 | 10.18.0 | 1.21.1 | 1.6.11 |  6u45   | 79.0.3945.36  |
+| 2020.03.20     | 2.6.x |   3.1.2  |   2.1.4 | 10.19.0 | 1.22.4 | 1.6.11 |  6u45   | 80.0.3987.106 |
+| 2020.03.21     | 2.6.x |   3.1.2  |   2.1.4 | 12.16.1 | 1.22.4 | 1.6.11 |  6u45   | 80.0.3987.106 |
 
-NOTE:  Currently, CDS Tools requires an older node release series (10.x.x), so other products will use a different docker image with the current LTS 
+
+**NOTE:  Currently, CDS Tools requires an older node release series (10.x.x), so other products will use a different docker image with the current LTS**
 
 
 Docker for Mac
