@@ -37,7 +37,7 @@ The naming convention is as follows (alphabetically increasing city names):
 | 2020.03.20     | 2.6.x |   3.1.2  |   2.1.4 | 10.19.0 | 1.22.4 | 1.6.11 |  6u45   | 80.0.3987.106 | cds-tools  |
 | 2020.03.21     | 2.6.x |   3.1.2  |   2.1.4 | 12.16.1 | 1.22.4 | 1.6.11 |  6u45   | 80.0.3987.106 | cvp, quill |
 | 2020.06.05     | 2.6.x |   3.1.2  |   2.1.4 | 10.21.0 | 1.22.4 | 1.6.11 |  6u45   | 83.0.4103.39  | cds-tools  |
-| 2020.06.05-2   | 2.6.x |   3.1.2  |   2.1.4 | 12.18.0 | 1.22.4 | 1.6.11 |  6u45   | 83.0.4103.39  | cvp, quill |
+| 2020.06.09     | 2.6.x |   3.1.4  |   2.1.4 | 12.18.0 | 1.22.4 | 1.6.11 |  6u45   | 83.0.4103.39  | cvp, quill |
 
 **NOTE:  Currently, CDS Tools requires an older node release series (10.x.x), so other products will use a different docker image with the current LTS**
 
