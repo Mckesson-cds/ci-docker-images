@@ -62,7 +62,7 @@ RUN curl --compressed -L --output chefdk_$CHEFDK_VERSION-1_amd64.deb https://pac
   && rm chefdk_$CHEFDK_VERSION-1_amd64.deb
 
 # NOTE: Using old Node due to CDS Tools using very old Ember.js packages that are not Node v12.x.x compatible
-ENV NODE_VERSION 10.21.0
+ENV NODE_VERSION 12.18.0
 
 RUN curl -sL https://deb.nodesource.com/setup_10.x| bash - \
   && apt-get install -y nodejs
@@ -80,7 +80,7 @@ RUN curl --compressed -L https://codeclimate.com/downloads/test-reporter/test-re
 
 # Ruby gems & bundler
 RUN echo 'gem: --no-document' >> ~/.gemrc
-ENV RUBYGEMS_VERSION 3.1.2
+ENV RUBYGEMS_VERSION 3.1.4
 RUN gem update --system $RUBYGEMS_VERSION
 ENV BUNDLER_VERSION 2.1.4
 RUN gem install bundler -v $BUNDLER_VERSION
