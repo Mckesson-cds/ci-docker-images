@@ -62,9 +62,9 @@ RUN curl --compressed -L --output chefdk_$CHEFDK_VERSION-1_amd64.deb https://pac
   && rm chefdk_$CHEFDK_VERSION-1_amd64.deb
 
 # NOTE: Using old Node due to CDS Tools using very old Ember.js packages that are not Node v12.x.x compatible
-ENV NODE_VERSION 10.22.0
+ENV NODE_VERSION 12.18.3
 
-RUN curl -sL https://deb.nodesource.com/setup_10.x| bash - \
+RUN curl -sL https://deb.nodesource.com/setup_12.x| bash - \
   && apt-get install -y nodejs
 
 # Yarn
