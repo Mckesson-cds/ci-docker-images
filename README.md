@@ -60,7 +60,7 @@ To Prepare a New Image
 - git co -b <current date>
 - Edit this README.md.
   - Document the new image resource versions above.
-- Make the version changes in the Dockerfile.  NOTE: Check http://chromedriver.chromium.org/home to determine the current stable chromedriver version.  Also, the ruby version with be the latest patchlevel ruby-ng release for the specified major and minor version in the Dockerfile. E.g., https://launchpad.net/~brightbox/+archive/ubuntu/ruby-ng/+index?field.series_filter=xenial
+- Make the version changes in the Dockerfile.  NOTE: Check http://chromedriver.chromium.org/home to determine the current stable chromedriver version.  Also, the ruby version will be the latest patchlevel ruby-ng release for the specified major and minor version in the Dockerfile. E.g., https://launchpad.net/~brightbox/+archive/ubuntu/ruby-ng/+index?field.series_filter=xenial
 - `git add .` / `git commit` / `git push --set-upstream origin {{branch-name}}`
 - When the new image has been built, run `docker run -it mckessoncds/ci-docker-images:{{image-name}} /bin/bash`
   Note: This will download the image and open a shell.
