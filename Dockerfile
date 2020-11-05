@@ -45,7 +45,7 @@ RUN dpkg -i google-chrome-stable_current_amd64.deb; apt-get -fy install
 
 # PhantomJS
 ENV PHANTOMJS_VERSION 2.1.1
-RUN curl --compressed -L --output /usr/local/bin/phantomjs https://s3.amazonaws.com/circle-downloads/phantomjs-$PHANTOMJS_VERSION \
+RUN curl --compressed -L --output /usr/local/b	in/phantomjs https://s3.amazonaws.com/circle-downloads/phantomjs-$PHANTOMJS_VERSION \
   && chmod a+x /usr/local/bin/phantomjs
 
 # Ruby
@@ -62,10 +62,9 @@ RUN curl --compressed -L --output chefdk_$CHEFDK_VERSION-1_amd64.deb https://pac
   && rm chefdk_$CHEFDK_VERSION-1_amd64.deb
 
 # NOTE: Using old Node due to CDS Tools using very old Ember.js packages that are not Node v12.x.x compatible
-ENV NODE_VERSION 12.18.0
 
-RUN curl -sL https://deb.nodesource.com/setup_12.x| bash - \
-  && apt-get install -y nodejs
+RUN wget https://deb.nodesource.com/node_0.12/pool/main/n/nodejs/nodejs_0.12.18-1nodesource1~xenial1_amd64.deb \
+  && dpkg -i nodejs_0.12.18-1nodesource1~xenial1_amd64.deb
 
 # Yarn
 ENV YARN_VERSION 1.22.4
