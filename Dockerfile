@@ -63,8 +63,8 @@ RUN curl --compressed -L --output chefdk_$CHEFDK_VERSION-1_amd64.deb https://pac
 
 # NOTE: Using old Node due to CDS Tools using very old Ember.js packages that are not Node v12.x.x compatible
 
-RUN wget https://deb.nodesource.com/node_0.12/pool/main/n/nodejs/nodejs_0.12.18-1nodesource1~xenial1_amd64.deb \
-  && dpkg -i nodejs_0.12.18-1nodesource1~xenial1_amd64.deb
+RUN wget https://deb.nodesource.com/node_0.12/pool/main/n/nodejs/nodejs_0.12.18-1nodesource1~xenial1_amd64.deb
+#  && dpkg -i nodejs_0.12.18-1nodesource1~xenial1_amd64.deb
 
 # Yarn
 ENV YARN_VERSION 1.22.4
