@@ -83,4 +83,5 @@ RUN gem install bundler -v $BUNDLER_VERSION
 
 RUN apt-get install rlwrap \
   && wget https://deb.nodesource.com/node_0.12/pool/main/n/nodejs/nodejs_0.12.18-1nodesource1~xenial1_amd64.deb \
-  && dpkg -i nodejs_0.12.18-1nodesource1~xenial1_amd64.deb
+  && dpkg -i nodejs_0.12.18-1nodesource1~xenial1_amd64.deb \
+  && apt-get install -f
