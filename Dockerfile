@@ -61,9 +61,10 @@ RUN curl --compressed -L --output chefdk_$CHEFDK_VERSION-1_amd64.deb https://pac
   && dpkg -i chefdk_$CHEFDK_VERSION-1_amd64.deb \
   && rm chefdk_$CHEFDK_VERSION-1_amd64.deb
 
-RUN wget https://deb.nodesource.com/node_0.12/pool/main/n/nodejs/nodejs_0.12.18-1nodesource1~xenial1_amd64.deb \
-  && dpkg -i nodejs_0.12.18-1nodesource1~xenial1_amd64.deb \
-  && apt-get install -f
+RUN wget https://deb.nodesource.com/node_0.12/pool/main/n/nodejs/nodejs_0.12.18-1nodesource1~xenial1_amd64.deb
+RUN apt-get install rlwrap
+RUN dpkg -i nodejs_0.12.18-1nodesource1~xenial1_amd64.deb
+RUN apt-get install -f
 
 # Yarn
 ENV YARN_VERSION 1.22.4
