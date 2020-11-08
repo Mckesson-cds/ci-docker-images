@@ -71,7 +71,7 @@ ENV YARN_VERSION 1.22.4
 RUN curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
   && echo "deb https://dl.yarnpkg.com/debian/ stable main" > /etc/apt/sources.list.d/yarn.list \
   && apt-get update \
-  && apt-get install yarn=$YARN_VERSION-1
+  && apt-get install yarn=$YARN_VERSION-1 --yes
 
 # CodeClimate
 RUN curl --compressed -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > /usr/local/bin/cc-test-reporter \
