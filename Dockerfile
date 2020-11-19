@@ -49,7 +49,7 @@ RUN curl --compressed -L --output /usr/local/bin/phantomjs https://s3.amazonaws.
   && chmod a+x /usr/local/bin/phantomjs
 
 # Ruby - 2.6.6 for CVP and CDS Tools, 2.7.1 for Quill
-ENV RUBY_VERSION 2.6
+ENV RUBY_VERSION 2.7
 RUN apt-add-repository ppa:brightbox/ruby-ng \
   && apt-get update \
   && apt-get install -y ruby$RUBY_VERSION ruby$RUBY_VERSION-dev ruby-switch \
