@@ -35,7 +35,7 @@ RUN curl --compressed -L --output dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.g
   && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
   && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
-ENV CHROMEDRIVER_VERSION 84.0.4147.30
+ENV CHROMEDRIVER_VERSION 87.0.4280.20
 RUN curl -O https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
 RUN unzip chromedriver_linux64.zip -d /usr/local/bin && rm chromedriver_linux64.zip
 
@@ -48,8 +48,8 @@ ENV PHANTOMJS_VERSION 2.1.1
 RUN curl --compressed -L --output /usr/local/bin/phantomjs https://s3.amazonaws.com/circle-downloads/phantomjs-$PHANTOMJS_VERSION \
   && chmod a+x /usr/local/bin/phantomjs
 
-# Ruby
-ENV RUBY_VERSION 2.7
+# Ruby - 2.6.6 for CVP and CDS Tools, 2.7.1 for Quill
+ENV RUBY_VERSION 2.6
 RUN apt-add-repository ppa:brightbox/ruby-ng \
   && apt-get update \
   && apt-get install -y ruby$RUBY_VERSION ruby$RUBY_VERSION-dev ruby-switch \
@@ -61,10 +61,8 @@ RUN curl --compressed -L --output chefdk_$CHEFDK_VERSION-1_amd64.deb https://pac
   && dpkg -i chefdk_$CHEFDK_VERSION-1_amd64.deb \
   && rm chefdk_$CHEFDK_VERSION-1_amd64.deb
 
-# NOTE: Using old Node due to CDS Tools using very old Ember.js packages that are not Node v12.x.x compatible
-ENV NODE_VERSION 12.18.3
-
-RUN curl -sL https://deb.nodesource.com/setup_12.x| bash - \
+# Node - 10.x.x series for CDS Tools, 14.15.1 for CVP and Quill
+RUN curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash - \
   && apt-get install -y nodejs
 
 # Yarn
