@@ -62,7 +62,7 @@ RUN curl --compressed -L --output chefdk_$CHEFDK_VERSION-1_amd64.deb https://pac
   && rm chefdk_$CHEFDK_VERSION-1_amd64.deb
 
 # Node - 10.x.x series for CDS Tools, 14.15.1 for CVP and Quill
-RUN curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash - \
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - \
   && apt-get install -y nodejs
 
 # Yarn
