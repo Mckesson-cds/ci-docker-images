@@ -49,7 +49,7 @@ RUN curl --compressed -L --output /usr/local/bin/phantomjs https://s3.amazonaws.
   && chmod a+x /usr/local/bin/phantomjs
 
 # Ruby - 2.6.6 for CVP and CDS Tools, 2.7.1 for Quill
-ENV RUBY_VERSION 2.7
+ENV RUBY_VERSION 2.6
 RUN apt-add-repository ppa:brightbox/ruby-ng \
   && apt-get update \
   && apt-get install -y ruby$RUBY_VERSION ruby$RUBY_VERSION-dev ruby-switch \
@@ -62,7 +62,7 @@ RUN curl --compressed -L --output chefdk_$CHEFDK_VERSION-1_amd64.deb https://pac
   && rm chefdk_$CHEFDK_VERSION-1_amd64.deb
 
 # Node - 10.x.x series for CDS Tools, 14.15.1 for CVP and Quill
-RUN curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash - \
+RUN curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash - \
   && apt-get install -y nodejs
 
 # Yarn
