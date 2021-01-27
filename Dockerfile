@@ -79,7 +79,7 @@ RUN curl --compressed -L https://codeclimate.com/downloads/test-reporter/test-re
 
 # Ruby gems & bundler
 RUN echo 'gem: --no-document' >> ~/.gemrc
-ENV RUBYGEMS_VERSION 3.2.7
+ENV RUBYGEMS_VERSION 3.1.4
 RUN gem update --system $RUBYGEMS_VERSION
-ENV BUNDLER_VERSION 2.2.7
+ENV BUNDLER_VERSION 2.1.4
 RUN gem install bundler -v $BUNDLER_VERSION
