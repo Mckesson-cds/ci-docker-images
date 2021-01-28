@@ -49,7 +49,7 @@ RUN curl --compressed -L --output /usr/local/bin/phantomjs https://s3.amazonaws.
   && chmod a+x /usr/local/bin/phantomjs
 
 # Ruby
-ENV RUBY_VERSION 2.7
+ENV RUBY_VERSION 2.6
 RUN apt-add-repository ppa:brightbox/ruby-ng \
   && apt-get update \
   && apt-get install -y ruby$RUBY_VERSION ruby$RUBY_VERSION-dev ruby-switch \
@@ -61,9 +61,9 @@ RUN curl --compressed -L --output chefdk_$CHEFDK_VERSION-1_amd64.deb https://pac
   && dpkg -i chefdk_$CHEFDK_VERSION-1_amd64.deb \
   && rm chefdk_$CHEFDK_VERSION-1_amd64.deb
 
-ENV NODE_VERSION 10.23.2
+ENV NODE_VERSION 14.15.4
 
-RUN curl -sL https://deb.nodesource.com/setup_10.x| bash - \
+RUN curl -sL https://deb.nodesource.com/setup_14.x| bash - \
   && apt-get install -y nodejs
 
 # Yarn
