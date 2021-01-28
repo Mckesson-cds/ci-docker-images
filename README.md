@@ -40,6 +40,8 @@ The naming convention is as follows (alphabetically increasing city names):
 | 2020.06.09     | 2.6.x |   3.1.4  |   2.1.4 | 12.18.0 | 1.22.4 | 1.6.11 |  6u45   | 83.0.4103.39  | cvp, quill |
 | 2020.08.10-1   | 2.7.x |   3.1.4  |   2.1.4 | 10.22.0 | 1.22.4 | 1.6.11 |  6u45   | 84.0.4147.30  | cds-tools  |
 | 2020.08.10-2   | 2.7.x |   3.1.4  |   2.1.4 | 12.18.3 | 1.22.4 | 1.6.11 |  6u45   | 84.0.4147.30  | cvp, quill |
+| 2021.01.27-1   | 2.7.x |   3.1.4  |   2.1.4 | 14.15.4 | 1.22.5 | 1.6.11 |  6u45   | 88.0.4324.96  | cvp, quill |
+| 2021.01.27-2   | 2.7.x |   3.1.4  |   2.1.4 | 10.23.2 | 1.22.5 | 1.6.11 |  6u45   | 88.0.4324.96  | cds-tools  |
 
 **NOTE:  Currently, CDS Tools requires an older node release series (10.x.x), so other products will use a different docker image with the current LTS**
 
@@ -58,7 +60,7 @@ To Prepare a New Image
 - git co -b <current date>
 - Edit this README.md.
   - Document the new image resource versions above.
-- Make the version changes in the Dockerfile.  NOTE: Check http://chromedriver.chromium.org/home to determine the current stable chromedriver version.  Also, the ruby version with be the latest patchlevel ruby-ng release for the specified major and minor version in the Dockerfile. E.g., https://launchpad.net/~brightbox/+archive/ubuntu/ruby-ng/+index?field.series_filter=xenial
+- Make the version changes in the Dockerfile.  NOTE: Check http://chromedriver.chromium.org/home to determine the current stable chromedriver version.  Also, the ruby version will be the latest patchlevel ruby-ng release for the specified major and minor version in the Dockerfile. E.g., https://launchpad.net/~brightbox/+archive/ubuntu/ruby-ng/+index?field.series_filter=xenial
 - `git add .` / `git commit` / `git push --set-upstream origin {{branch-name}}`
 - When the new image has been built, run `docker run -it mckessoncds/ci-docker-images:{{image-name}} /bin/bash`
   Note: This will download the image and open a shell.
