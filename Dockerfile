@@ -61,9 +61,9 @@ RUN curl --compressed -L --output chefdk_$CHEFDK_VERSION-1_amd64.deb https://pac
   && dpkg -i chefdk_$CHEFDK_VERSION-1_amd64.deb \
   && rm chefdk_$CHEFDK_VERSION-1_amd64.deb
 
-ENV NODE_VERSION 10.23.2
+ENV NODE_VERSION 14.15.4
 
-RUN curl -sL https://deb.nodesource.com/setup_10.x| bash - \
+RUN curl -sL https://deb.nodesource.com/setup_14.x| bash - \
   && apt-get install -y nodejs
 
 # Yarn
@@ -81,5 +81,5 @@ RUN curl --compressed -L https://codeclimate.com/downloads/test-reporter/test-re
 RUN echo 'gem: --no-document' >> ~/.gemrc
 ENV RUBYGEMS_VERSION 3.1.4
 RUN gem update --system $RUBYGEMS_VERSION
-ENV BUNDLER_VERSION 2.1.4
+ENV BUNDLER_VERSION 2.2.7
 RUN gem install bundler -v $BUNDLER_VERSION
