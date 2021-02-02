@@ -61,9 +61,9 @@ RUN curl --compressed -L --output chefdk_$CHEFDK_VERSION-1_amd64.deb https://pac
   && dpkg -i chefdk_$CHEFDK_VERSION-1_amd64.deb \
   && rm chefdk_$CHEFDK_VERSION-1_amd64.deb
 
-ENV NODE_VERSION 14.15.4
+ENV NODE_VERSION 10.23.2
 
-RUN curl -sL https://deb.nodesource.com/setup_14.x| bash - \
+RUN curl -sL https://deb.nodesource.com/setup_10.x| bash - \
   && apt-get install -y nodejs
 
 # Yarn

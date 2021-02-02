@@ -43,7 +43,7 @@ https://store.docker.com/editions/community/docker-ce-desktop-mac
 To Prepare a New Image
 ----------------------
 
-1. git co -b <current date>
+1. git co -b <jira ticket reference for target repo>
 2. Edit this README.md. Document the new image resource versions above.
 3. Make the version changes in the Dockerfile.  NOTE: Check http://chromedriver.chromium.org/home to determine the current stable chromedriver version.  Also, the ruby version will be the latest patchlevel ruby-ng release for the specified major and minor version in the Dockerfile. E.g., https://launchpad.net/~brightbox/+archive/ubuntu/ruby-ng/+index?field.series_filter=xenial
 4. `git add .` / `git commit` / `git push --set-upstream origin {{branch-name}}`
