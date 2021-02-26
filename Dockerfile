@@ -19,7 +19,7 @@ RUN apt-get update && apt-get install -y \
   git \
   imagemagick libmagickcore-dev libmagickwand-dev \
   jq \
-  libcurl4 libcurl4-gnutls libcurl4-openssl-dev \
+  libcurl4 libcurl3-gnutls libcurl4-openssl-dev \
   libpq-dev \
   software-properties-common \
   tzdata \
