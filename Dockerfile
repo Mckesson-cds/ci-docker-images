@@ -15,9 +15,6 @@ ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=America/New_York
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-RUN wget -qO - https://packages.chef.io/chef.asc | apt-key add -
-RUN echo "deb https://packages.chef.io/repos/apt/stable bionic main" > /etc/apt/sources.list.d/chef-stable.list
-
 # Misc.
 RUN apt-get update && apt-get install -y \
   apt-transport-https \
@@ -63,7 +60,10 @@ RUN apt-add-repository ppa:brightbox/ruby-ng \
 
 # ChefDK
 ENV CHEFDK_VERSION 1.6.11
-RUN apt-get install chefdk=1.6.11-1
+RUN wget -qO - https://packages.chef.io/chef.asc | sudo apt-key add - \
+  && echo "deb https://packages.chef.io/repos/apt/stable bionic main" > /etc/apt/sources.list.d/chef-stable.list \
+  && apt-get update \
+  && RUN apt-get install chefdk=$CHEFDK_VERSION
 
 ENV NODE_VERSION 14.15.4
 RUN curl -sL https://deb.nodesource.com/setup_14.x| bash - \
