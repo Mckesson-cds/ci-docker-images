@@ -11,6 +11,10 @@ RUN rm ./jdk-6u45-linux-x64.bin
 # Java test runner
 RUN apt-get update && apt-get install -y ant
 
+ARG DEBIAN_FRONTEND=noninteractive
+ENV TZ=America/New_York
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 # Misc.
 RUN apt-get update && apt-get install -y \
   apt-transport-https \
@@ -26,8 +30,7 @@ RUN apt-get update && apt-get install -y \
   unzip \
   zip
 
-# set timezone to America/New_York
-RUN ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime && dpkg-reconfigure -f noninteractive tzdata
+RUN dpkg-reconfigure -f noninteractive tzdata
 
 # Dockerize
 ENV DOCKERIZE_VERSION v0.6.1
