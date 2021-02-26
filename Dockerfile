@@ -63,7 +63,7 @@ ENV CHEFDK_VERSION 1.6.11
 RUN wget -qO - https://packages.chef.io/chef.asc | apt-key add - \
   && echo "deb https://packages.chef.io/repos/apt/stable bionic main" > /etc/apt/sources.list.d/chef-stable.list \
   && apt-get update \
-  && RUN apt-get install chefdk=$CHEFDK_VERSION
+  && apt-get install chefdk=$CHEFDK_VERSION
 
 ENV NODE_VERSION 14.15.4
 RUN curl -sL https://deb.nodesource.com/setup_14.x| bash - \
