@@ -60,7 +60,7 @@ RUN apt-add-repository ppa:brightbox/ruby-ng \
 
 # ChefDK
 ENV CHEFDK_VERSION 1.6.11
-RUN wget -qO - https://packages.chef.io/chef.asc | sudo apt-key add - \
+RUN wget -qO - https://packages.chef.io/chef.asc | apt-key add - \
   && echo "deb https://packages.chef.io/repos/apt/stable bionic main" > /etc/apt/sources.list.d/chef-stable.list \
   && apt-get update \
   && RUN apt-get install chefdk=$CHEFDK_VERSION
