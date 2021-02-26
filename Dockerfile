@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 LABEL maintainer="kevin.olbrich@mckesson.com"
 
 # Java
@@ -35,7 +35,7 @@ RUN curl --compressed -L --output dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.g
   && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
   && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
-ENV CHROMEDRIVER_VERSION 88.0.4324.96
+ENV CHROMEDRIVER_VERSION 89.0.4389.23
 RUN curl -O https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
 RUN unzip chromedriver_linux64.zip -d /usr/local/bin && rm chromedriver_linux64.zip
 
@@ -49,7 +49,7 @@ RUN curl --compressed -L --output /usr/local/bin/phantomjs https://s3.amazonaws.
   && chmod a+x /usr/local/bin/phantomjs
 
 # Ruby
-ENV RUBY_VERSION 2.6
+ENV RUBY_VERSION 2.7
 RUN apt-add-repository ppa:brightbox/ruby-ng \
   && apt-get update \
   && apt-get install -y ruby$RUBY_VERSION ruby$RUBY_VERSION-dev ruby-switch \
