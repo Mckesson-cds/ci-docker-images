@@ -59,12 +59,11 @@ RUN apt-add-repository ppa:brightbox/ruby-ng \
   && ruby-switch --set ruby$RUBY_VERSION
 
 # ChefDK
-RUN wget -qO - https://packages.chef.io/chef.asc | apt-key add -
-RUN echo "deb https://packages.chef.io/repos/apt/stable bionic main" > chef-stable.list
-RUN mv chef-stable.list /etc/apt/sources.list.d/
-RUN apt-get update
-RUN apt-get install chefdk=1.6.11-1
+ENV VER=4.9.7
+RUN wget https://packages.chef.io/files/stable/chefdk/${VER}/ubuntu/18.04/chefdk_${VER}-1_amd64.deb
+RUN sudo apt install ./chefdk_${VER}-1_amd64.deb
 
+# Node
 ENV NODE_VERSION 14.15.4
 RUN curl -sL https://deb.nodesource.com/setup_14.x| bash - \
   && apt-get install -y nodejs
