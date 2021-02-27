@@ -61,7 +61,7 @@ RUN apt-add-repository ppa:brightbox/ruby-ng \
 # ChefDK
 RUN wget -qO - https://packages.chef.io/chef.asc | apt-key add -
 RUN echo "deb https://packages.chef.io/repos/apt/stable bionic main" > chef-stable.list
-RUN mv chef-stable.list /etc/apt/sources.d/
+RUN mv chef-stable.list /etc/apt/sources.list.d/
 RUN apt-get update
 RUN apt-get install chefdk=1.6.11-1
 
