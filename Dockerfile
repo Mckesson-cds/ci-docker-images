@@ -60,8 +60,8 @@ RUN apt-add-repository ppa:brightbox/ruby-ng \
 
 # ChefDK
 ENV CHEF_VERSION 4.9.7
-RUN wget https://packages.chef.io/files/stable/chefdk/$CHEF_VERSION/ubuntu/18.04/chefdk_$CHEF_VERSION-1_amd64.deb
-RUN apt install ./chefdk_$CHEF_VERSION-1_amd64.deb
+RUN wget -nv https://packages.chef.io/files/stable/chefdk/$CHEF_VERSION/ubuntu/18.04/chefdk_$CHEF_VERSION-1_amd64.deb
+RUN dpkg -i ./chefdk_$CHEF_VERSION-1_amd64.deb
 
 # Node
 ENV NODE_VERSION 14.15.4
