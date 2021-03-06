@@ -30,8 +30,8 @@ RUN curl --compressed -L --output chefdk_$CHEFDK_VERSION-1_amd64.deb https://pac
   && dpkg -i chefdk_$CHEFDK_VERSION-1_amd64.deb \
   && rm chefdk_$CHEFDK_VERSION-1_amd64.deb
 
-echo 'eval "$(chef shell-init bash)"' >> .bashrc
-eval "$(chef shell-init bash)"
+RUN echo 'eval "$(chef shell-init bash)"' >> .bashrc \
+  && eval "$(chef shell-init bash)"
 
 # CodeClimate
 RUN curl --compressed -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > /usr/local/bin/cc-test-reporter \
