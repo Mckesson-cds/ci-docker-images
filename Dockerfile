@@ -24,13 +24,6 @@ RUN curl --compressed -L --output dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.g
   && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
   && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
-# Ruby
-ENV RUBY_VERSION 2.7
-RUN apt-add-repository ppa:brightbox/ruby-ng \
-  && apt-get update \
-  && apt-get install -y ruby$RUBY_VERSION ruby$RUBY_VERSION-dev ruby-switch \
-  && ruby-switch --set ruby$RUBY_VERSION
-
 # ChefDK
 ENV CHEFDK_VERSION 1.6.11
 RUN curl --compressed -L --output chefdk_$CHEFDK_VERSION-1_amd64.deb https://packages.chef.io/stable/ubuntu/$(lsb_release -rs)/chefdk_$CHEFDK_VERSION-1_amd64.deb \
@@ -40,10 +33,3 @@ RUN curl --compressed -L --output chefdk_$CHEFDK_VERSION-1_amd64.deb https://pac
 # CodeClimate
 RUN curl --compressed -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > /usr/local/bin/cc-test-reporter \
   && chmod a+x /usr/local/bin/cc-test-reporter
-
-# Ruby gems & bundler
-RUN echo 'gem: --no-document' >> ~/.gemrc
-ENV RUBYGEMS_VERSION 3.2.13
-RUN gem update --system $RUBYGEMS_VERSION
-ENV BUNDLER_VERSION 2.2.13
-RUN gem install bundler -v $BUNDLER_VERSION
