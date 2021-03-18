@@ -27,6 +27,7 @@ The naming convention is as follows (alphabetically increasing city names):
 | 2021.02.01-cvp   | 2.6.x |  3.1.4   |  2.2.7  | 14.15.4 | 1.22.5 | 88.0.4324.96  |
 | 2021.02.01-cds   | 2.6.x |  3.1.4   |  2.2.7  | 10.23.2 | 1.22.5 | 88.0.4324.96  |
 | 2021.02.01-quill | 2.7.x |  3.1.4   |  2.2.7  | 14.15.4 | 1.22.5 | 88.0.4324.96  |
+| 2021.03.18-cds   | 2.6.x |          |  2.2.14 | 10.24.0 | 1.22.5 | 89.0.4389.23  |
 
 
 **NOTE:  Currently, CDS Tools requires an older node release series (10.x.x), so other products will use a different docker image with the current LTS**
