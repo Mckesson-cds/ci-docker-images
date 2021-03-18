@@ -15,8 +15,10 @@ RUN apt-get update && apt-get install -y ant
 RUN apt-get update && apt-get install -y \
   apt-transport-https \
   build-essential \
+  ca-certificates \ # Needed to install fullstaq ruby
   curl \
   git \
+  gnupg \ # Needed to install fullstaq ruby
   imagemagick libmagickcore-dev libmagickwand-dev \
   jq \
   libcurl3 libcurl3-gnutls libcurl4-openssl-dev \
@@ -35,7 +37,7 @@ RUN curl --compressed -L --output dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.g
   && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
   && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
-ENV CHROMEDRIVER_VERSION 88.0.4324.96
+ENV CHROMEDRIVER_VERSION 89.0.4389.23
 RUN curl -O https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
 RUN unzip chromedriver_linux64.zip -d /usr/local/bin && rm chromedriver_linux64.zip
 
@@ -50,10 +52,11 @@ RUN curl --compressed -L --output /usr/local/bin/phantomjs https://s3.amazonaws.
 
 # Ruby
 ENV RUBY_VERSION 2.6
-RUN apt-add-repository ppa:brightbox/ruby-ng \
-  && apt-get update \
-  && apt-get install -y ruby$RUBY_VERSION ruby$RUBY_VERSION-dev ruby-switch \
-  && ruby-switch --set ruby$RUBY_VERSION
+RUN deb https://apt.fullstaqruby.org ubuntu-18.04 main \
+  && curl -SLfO https://raw.githubusercontent.com/fullstaq-labs/fullstaq-ruby-server-edition/main/fullstaq-ruby.asc \
+  && apt-key add fullstaq-ruby.asc \
+  && apt update \
+  && apt install fullstaq-ruby-common fullstaq-ruby-$RUBY_VERSION
 
 # ChefDK
 ENV CHEFDK_VERSION 1.6.11
@@ -61,7 +64,7 @@ RUN curl --compressed -L --output chefdk_$CHEFDK_VERSION-1_amd64.deb https://pac
   && dpkg -i chefdk_$CHEFDK_VERSION-1_amd64.deb \
   && rm chefdk_$CHEFDK_VERSION-1_amd64.deb
 
-ENV NODE_VERSION 10.23.2
+ENV NODE_VERSION 10.24.0
 
 RUN curl -sL https://deb.nodesource.com/setup_10.x| bash - \
   && apt-get install -y nodejs
@@ -79,7 +82,5 @@ RUN curl --compressed -L https://codeclimate.com/downloads/test-reporter/test-re
 
 # Ruby gems & bundler
 RUN echo 'gem: --no-document' >> ~/.gemrc
-ENV RUBYGEMS_VERSION 3.1.4
-RUN gem update --system $RUBYGEMS_VERSION
-ENV BUNDLER_VERSION 2.2.7
-RUN gem install bundler -v $BUNDLER_VERSION
+ENV BUNDLER_VERSION 2.2.14
+RUN gem install 
