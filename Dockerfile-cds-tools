@@ -74,6 +74,8 @@ RUN curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
 RUN curl --compressed -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > /usr/local/bin/cc-test-reporter \
   && chmod a+x /usr/local/bin/cc-test-reporter
 
+ENV PATH /usr/lib/fullstaq-ruby/versions/2.6/bin/:$PATH
+
 # Ruby gems & bundler
 RUN echo 'gem: --no-document' >> ~/.gemrc
 ENV BUNDLER_VERSION 2.2.14
