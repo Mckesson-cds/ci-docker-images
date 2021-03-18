@@ -1,12 +1,23 @@
 FROM ubuntu:16.04
 LABEL maintainer="kevin.olbrich@mckesson.com"
 
+# Java
+ENV JAVA_HOME=/jdk1.6.0_45
+ENV PATH="${JAVA_HOME}/bin:${PATH}"
+COPY ./src/jdk-6u45-linux-x64.bin ./jdk-6u45-linux-x64.bin
+RUN chmod a+x ./jdk-6u45-linux-x64.bin
+RUN ./jdk-6u45-linux-x64.bin
+RUN rm ./jdk-6u45-linux-x64.bin
+# Java test runner
+RUN apt-get update && apt-get install -y ant
+
 # Misc.
 RUN apt-get update && apt-get install -y \
   apt-transport-https \
   build-essential \
   curl \
   git \
+  imagemagick libmagickcore-dev libmagickwand-dev \
   jq \
   libcurl3 libcurl3-gnutls libcurl4-openssl-dev \
   libpq-dev \
@@ -24,15 +35,51 @@ RUN curl --compressed -L --output dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.g
   && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
   && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
+ENV CHROMEDRIVER_VERSION 88.0.4324.96
+RUN curl -O https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
+RUN unzip chromedriver_linux64.zip -d /usr/local/bin && rm chromedriver_linux64.zip
+
+# Install the latest stable Chrome
+RUN curl -O https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+RUN dpkg -i google-chrome-stable_current_amd64.deb; apt-get -fy install
+
+# PhantomJS
+ENV PHANTOMJS_VERSION 2.1.1
+RUN curl --compressed -L --output /usr/local/bin/phantomjs https://s3.amazonaws.com/circle-downloads/phantomjs-$PHANTOMJS_VERSION \
+  && chmod a+x /usr/local/bin/phantomjs
+
+# Ruby
+ENV RUBY_VERSION 2.6
+RUN apt-add-repository ppa:brightbox/ruby-ng \
+  && apt-get update \
+  && apt-get install -y ruby$RUBY_VERSION ruby$RUBY_VERSION-dev ruby-switch \
+  && ruby-switch --set ruby$RUBY_VERSION
+
 # ChefDK
 ENV CHEFDK_VERSION 1.6.11
 RUN curl --compressed -L --output chefdk_$CHEFDK_VERSION-1_amd64.deb https://packages.chef.io/stable/ubuntu/$(lsb_release -rs)/chefdk_$CHEFDK_VERSION-1_amd64.deb \
   && dpkg -i chefdk_$CHEFDK_VERSION-1_amd64.deb \
   && rm chefdk_$CHEFDK_VERSION-1_amd64.deb
 
-RUN echo 'eval "$(chef shell-init bash)"' >> ~/.bash_profile
-RUN echo 'eval "$(chef shell-init bash)"' >> ~/.bashrc
+ENV NODE_VERSION 10.23.2
+
+RUN curl -sL https://deb.nodesource.com/setup_10.x| bash - \
+  && apt-get install -y nodejs
+
+# Yarn
+ENV YARN_VERSION 1.22.5
+RUN curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
+  && echo "deb https://dl.yarnpkg.com/debian/ stable main" > /etc/apt/sources.list.d/yarn.list \
+  && apt-get update \
+  && apt-get install yarn=$YARN_VERSION-1
 
 # CodeClimate
 RUN curl --compressed -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > /usr/local/bin/cc-test-reporter \
   && chmod a+x /usr/local/bin/cc-test-reporter
+
+# Ruby gems & bundler
+RUN echo 'gem: --no-document' >> ~/.gemrc
+ENV RUBYGEMS_VERSION 3.1.4
+RUN gem update --system $RUBYGEMS_VERSION
+ENV BUNDLER_VERSION 2.2.7
+RUN gem install bundler -v $BUNDLER_VERSION
