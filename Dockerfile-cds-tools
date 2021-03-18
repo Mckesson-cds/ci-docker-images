@@ -59,7 +59,6 @@ RUN curl -SLfO https://raw.githubusercontent.com/fullstaq-labs/fullstaq-ruby-ser
   && apt-get install -y fullstaq-ruby-common fullstaq-ruby-$RUBY_VERSION
 
 ENV NODE_VERSION 10.24.0
-
 RUN curl -sL https://deb.nodesource.com/setup_10.x| bash - \
   && apt-get install -y nodejs
 
