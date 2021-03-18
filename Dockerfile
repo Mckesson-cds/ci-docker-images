@@ -21,7 +21,7 @@ RUN apt-get update && apt-get install -y \
   gnupg \
   imagemagick libmagickcore-dev libmagickwand-dev \
   jq \
-  libcurl3 libcurl3-gnutls libcurl4-openssl-dev \
+  libcurl4 libcurl3 libcurl3-gnutls libcurl4-openssl-dev \
   libpq-dev \
   software-properties-common \
   tzdata \
