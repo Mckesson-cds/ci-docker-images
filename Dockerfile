@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 LABEL maintainer="kevin.olbrich@mckesson.com"
 
 # Java
@@ -55,8 +55,8 @@ ENV RUBY_VERSION 2.6
 RUN echo 'deb https://apt.fullstaqruby.org ubuntu-18.04 main' > /etc/apt/sources.list.d/fullstaq-ruby.list
 RUN curl -SLfO https://raw.githubusercontent.com/fullstaq-labs/fullstaq-ruby-server-edition/main/fullstaq-ruby.asc \
   && apt-key add fullstaq-ruby.asc \
-  && apt update \
-  && apt install fullstaq-ruby-common fullstaq-ruby-$RUBY_VERSION
+  && apt-get update \
+  && apt-get install fullstaq-ruby-common fullstaq-ruby-$RUBY_VERSION
 
 # ChefDK
 ENV CHEFDK_VERSION 1.6.11
