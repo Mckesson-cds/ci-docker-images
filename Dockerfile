@@ -15,10 +15,10 @@ RUN apt-get update && apt-get install -y ant
 RUN apt-get update && apt-get install -y \
   apt-transport-https \
   build-essential \
-  ca-certificates \ # Needed to install fullstaq ruby
+  ca-certificates \
   curl \
   git \
-  gnupg \ # Needed to install fullstaq ruby
+  gnupg \
   imagemagick libmagickcore-dev libmagickwand-dev \
   jq \
   libcurl3 libcurl3-gnutls libcurl4-openssl-dev \
