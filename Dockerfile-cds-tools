@@ -1,15 +1,6 @@
 FROM ubuntu:18.04
 LABEL maintainer="kevin.olbrich@mckesson.com"
 
-# Java
-ENV JAVA_HOME=/jdk1.6.0_45
-ENV PATH="${JAVA_HOME}/bin:${PATH}"
-COPY ./src/jdk-6u45-linux-x64.bin ./jdk-6u45-linux-x64.bin
-RUN chmod a+x ./jdk-6u45-linux-x64.bin
-RUN ./jdk-6u45-linux-x64.bin
-RUN rm ./jdk-6u45-linux-x64.bin
-# Java test runner
-RUN apt-get update && apt-get install -y ant
 
 # Misc.
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends tzdata
