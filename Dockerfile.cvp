@@ -22,10 +22,12 @@ RUN apt-get update && apt-get install -y \
   curl \
   git \
   jq \
+  python-minimal \
   software-properties-common \
   unzip \
   zip \
-  && rm -rf /var/lib/apt/lists/*
+  && rm -rf /var/lib/apt/lists/* \
+  && update-ca-certificates
 
 # set timezone to America/New_York
 RUN ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime && dpkg-reconfigure -f noninteractive tzdata
@@ -35,14 +37,6 @@ ENV DOCKERIZE_VERSION v0.6.1
 RUN curl --compressed -L --output dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
   && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
   && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
-
-ENV CHROMEDRIVER_VERSION 88.0.4324.96
-RUN curl -O https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
-RUN unzip chromedriver_linux64.zip -d /usr/local/bin && rm chromedriver_linux64.zip
-
-# Install the latest stable Chrome
-RUN curl -O https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-RUN dpkg -i google-chrome-stable_current_amd64.deb; apt-get -fy install
 
 # PhantomJS
 ENV PHANTOMJS_VERSION 2.1.1
@@ -60,25 +54,34 @@ RUN curl -SLfO https://raw.githubusercontent.com/fullstaq-labs/fullstaq-ruby-ser
   && echo 'gem: --no-document' >> ~/.gemrc
 ENV PATH /usr/lib/fullstaq-ruby/versions/${RUBY_VERSION}/bin/:$PATH
 
-ENV NODE_VERSION 14.15.4
+ENV NODE_VERSION 14.16.0
 ENV DEB_FILE nodejs_$NODE_VERSION-1nodesource1_amd64.deb
-RUN curl -sLO "https://deb.nodesource.com/node_14.x/pool/main/n/nodejs/${DEB_FILE}" \
+RUN curl -skLO "https://deb.nodesource.com/node_14.x/pool/main/n/nodejs/${DEB_FILE}" \
   && apt-get install -y ./$DEB_FILE \
-  && rm $DEB_FILE \
-  && rm -rf /var/lib/apt/lists/*
+  && rm $DEB_FILE
 
 # Yarn
 ENV YARN_VERSION 1.22.5
-RUN curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
+RUN curl -SL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
   && echo "deb https://dl.yarnpkg.com/debian/ stable main" > /etc/apt/sources.list.d/yarn.list \
   && apt-get update \
   && apt-get install yarn=$YARN_VERSION-1 \
   && rm -rf /var/lib/apt/lists/*
 
+# Ruby gems & bundler
+ENV BUNDLER_VERSION 2.2.15
+RUN gem install bundler:$BUNDLER_VERSION
+
+ENV CHROMEDRIVER_VERSION 89.0.4389.23
+RUN curl -O https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip \
+  && unzip chromedriver_linux64.zip -d /usr/local/bin \
+  && rm chromedriver_linux64.zip
+
+# Install the latest stable Chrome
+RUN curl -O https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
+  && dpkg -i google-chrome-stable_current_amd64.deb; apt-get -fy install \
+  && rm google-chrome-stable_current_amd64.deb
+
 # CodeClimate
 RUN curl --compressed -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > /usr/local/bin/cc-test-reporter \
   && chmod a+x /usr/local/bin/cc-test-reporter
-
-# Ruby gems & bundler
-ENV BUNDLER_VERSION 2.2.7
-RUN gem install bundler:$BUNDLER_VERSION
