@@ -78,9 +78,11 @@ RUN curl -O https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/ch
   && rm chromedriver_linux64.zip
 
 # Install the latest stable Chrome
-RUN curl -O https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
-  && dpkg -i google-chrome-stable_current_amd64.deb; apt-get -fy install \
-  && rm google-chrome-stable_current_amd64.deb
+RUN curl -SO https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
+  && apt-get update \
+  && apt-get install -y ./google-chrome-stable_current_amd64.deb \
+  && rm google-chrome-stable_current_amd64.deb \
+  && apt-get clean
 
 # CodeClimate
 RUN curl --compressed -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > /usr/local/bin/cc-test-reporter \
