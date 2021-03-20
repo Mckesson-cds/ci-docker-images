@@ -11,13 +11,19 @@ RUN apt-get install -y \
   curl \
   git \
   gnupg \
-  imagemagick libmagickcore-dev libmagickwand-dev \
+  imagemagick \
   jq \
-  libcurl4 libcurl3-gnutls libcurl4-openssl-dev \
-  libpq-dev \
+  libcurl4-openssl-dev `# Needed to pull in libcurl4 for curl installation and enable to openssl TLS backend` \
+  libmagickcore-dev \
+  libmagickwand-dev \
+  libpq-dev `# Needed to provide libpq-fe.h header to build 'pg' gem native extensions` \
   software-properties-common \
   unzip \
-  zip
+  zip \
+  zlib1g-dev `# Fixes 'zlib is missing; necessary for building libxml2'` \
+  && rm -rf /var/lib/apt/lists/* \
+  && apt-get clean \
+  && update-ca-certificates
 
 # set timezone to America/New_York
 RUN ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime && dpkg-reconfigure -f noninteractive tzdata
@@ -33,8 +39,12 @@ RUN curl -O https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/ch
 RUN unzip chromedriver_linux64.zip -d /usr/local/bin && rm chromedriver_linux64.zip
 
 # Install the latest stable Chrome
-RUN curl -O https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-RUN dpkg -i google-chrome-stable_current_amd64.deb; apt-get -fy install
+RUN curl -SO https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
+  && apt-get update \
+  && apt-get install -y ./google-chrome-stable_current_amd64.deb \
+  && rm google-chrome-stable_current_amd64.deb \
+  && rm -rf /var/lib/apt/lists/* \
+  && apt-get clean
 
 # PhantomJS
 ENV PHANTOMJS_VERSION 2.1.1

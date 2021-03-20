@@ -24,13 +24,15 @@ RUN apt-get update \
   apt-transport-https \
   build-essential \
   ca-certificates \
-  curl libcurl4-openssl-dev \
+  curl \
   git \
   jq \
+  libcurl4-openssl-dev `# Needed to pull in libcurl4 for curl installation and enable to openssl TLS backend` \
+  libpq-dev `# Needed to provide libpq-fe.h header to build 'pg' gem native extensions` \
   software-properties-common \
   unzip \
   zip \
-  zlib1g-dev \
+  zlib1g-dev `# Fixes 'zlib is missing; necessary for building libxml2'` \
   && rm -rf /var/lib/apt/lists/* \
   && apt-get clean \
   && update-ca-certificates
@@ -45,7 +47,7 @@ RUN curl --compressed -L --output dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.g
   && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
   && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
-# PhantomJS
+# PhantomJS - Needed for the HighChart javascript rendering library
 ENV PHANTOMJS_VERSION 2.1.1
 RUN curl --compressed -L --output /usr/local/bin/phantomjs https://s3.amazonaws.com/circle-downloads/phantomjs-$PHANTOMJS_VERSION \
   && chmod a+x /usr/local/bin/phantomjs

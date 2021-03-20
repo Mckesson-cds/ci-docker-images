@@ -8,8 +8,10 @@ RUN apt-get update && apt-get install -y \
   curl \
   git \
   jq \
-  libcurl3 libcurl3-gnutls libcurl4-openssl-dev \
-  libpq-dev \
+  libcurl3 \
+  libcurl3-gnutls \
+  libcurl4-openssl-dev `# Needed for curl installation` \
+  libpq-dev `# Needed to provide libpq-fe.h header to build 'pg' gem native extensions` \
   software-properties-common \
   tzdata \
   unzip \

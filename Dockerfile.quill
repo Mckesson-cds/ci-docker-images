@@ -11,14 +11,15 @@ RUN apt-get update \
   apt-transport-https \
   build-essential \
   ca-certificates \
-  curl libcurl4-openssl-dev \
+  curl \
   git \
   jq \
-  libpq-dev \
+  libcurl4-openssl-dev `# Needed to pull in libcurl4 for curl installation and enable to openssl TLS backend` \
+  libpq-dev `# Needed to provide libpq-fe.h header to build 'pg' gem native extensions` \
   software-properties-common \
   unzip \
   zip \
-  zlib1g-dev \
+  zlib1g-dev `# Fixes 'zlib is missing; necessary for building libxml2'` \
   && rm -rf /var/lib/apt/lists/* \
   && apt-get clean \
   && update-ca-certificates
