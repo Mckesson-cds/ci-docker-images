@@ -80,5 +80,5 @@ RUN curl --compressed -L https://codeclimate.com/downloads/test-reporter/test-re
 
 # Bundler
 RUN echo 'gem: --no-document' >> ~/.gemrc
-ENV BUNDLER_VERSION 2.2.14
+ENV BUNDLER_VERSION 2.2.15
 RUN gem install bundler:$BUNDLER_VERSION
