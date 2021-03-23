@@ -33,7 +33,7 @@ To Prepare a New Image
 3. Make the version changes in the Dockerfile.  NOTE: Check http://chromedriver.chromium.org/home to determine the current stable chromedriver version.  Also, the ruby version will be the latest patchlevel ruby-ng release for the specified major and minor version in the Dockerfile. E.g., https://launchpad.net/~brightbox/+archive/ubuntu/ruby-ng/+index?field.series_filter=xenial
 4. `git add .` / `git commit` / `git push --set-upstream origin {{branch-name}}`
 5. When the new image has been built, run `docker run -it mckessoncds/ci-docker-images:{{image-name}} /bin/bash`
-  Note: This will download the image and open a shell.
+   Note: This will download the image and open a shell.
 6. When the image loads, confirm the resource versions.
 7. Open a GitHub pull request for the branch, get reviews and then merge to master.
 8. Create and tag a new release note. In order to make explicit the repo associated with the new image, use this tagging convention:  <date>-<repo abbreviation>. E.g., 2021.01.29-cvp, 2021.01.29-cds, 2021.01.29-quill.

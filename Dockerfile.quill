@@ -1,19 +1,6 @@
 FROM ubuntu:18.04
 LABEL maintainer="kevin.olbrich@mckesson.com"
 
-# Java
-ENV JAVA_HOME=/jdk1.6.0_45
-ENV PATH="${JAVA_HOME}/bin:${PATH}"
-COPY ./src/jdk-6u45-linux-x64.bin ./jdk-6u45-linux-x64.bin
-RUN chmod a+x ./jdk-6u45-linux-x64.bin
-RUN ./jdk-6u45-linux-x64.bin \
-  && rm ./jdk-6u45-linux-x64.bin
-# Java test runner
-RUN apt-get update \
-  && apt-get install -y ant \
-  && rm -rf /var/lib/apt/lists/* \
-  && apt-get clean
-
 RUN apt-get update \
   && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends tzdata \
   && rm -rf /var/lib/apt/lists/* \
@@ -47,13 +34,8 @@ RUN curl --compressed -L --output dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.g
   && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
   && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
-# PhantomJS - Needed for the HighChart javascript rendering library
-ENV PHANTOMJS_VERSION 2.1.1
-RUN curl --compressed -L --output /usr/local/bin/phantomjs https://s3.amazonaws.com/circle-downloads/phantomjs-$PHANTOMJS_VERSION \
-  && chmod a+x /usr/local/bin/phantomjs
-
 # Ruby
-ENV RUBY_VERSION 2.6
+ENV RUBY_VERSION 2.7
 RUN echo 'deb https://apt.fullstaqruby.org ubuntu-18.04 main' > /etc/apt/sources.list.d/fullstaq-ruby.list
 RUN curl -SLfO https://raw.githubusercontent.com/fullstaq-labs/fullstaq-ruby-server-edition/main/fullstaq-ruby.asc \
   && apt-key add fullstaq-ruby.asc \
