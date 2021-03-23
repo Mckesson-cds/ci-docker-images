@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y \
   libcurl3 \
   libcurl3-gnutls \
   libcurl4-openssl-dev `# Needed for curl installation` \
-  libpq-dev `# Needed to provide libpq-fe.h header to build 'pg' gem native extensions` \
+  libpq-dev `# Needed to install the 'pg' gem` \
   software-properties-common \
   tzdata \
   unzip \

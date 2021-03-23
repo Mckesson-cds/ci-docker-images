@@ -28,11 +28,11 @@ RUN apt-get update \
   git \
   jq \
   libcurl4-openssl-dev `# Needed to pull in libcurl4 for curl installation and enable to openssl TLS backend` \
-  libpq-dev `# Needed to provide libpq-fe.h header to build 'pg' gem native extensions` \
+  libpq-dev `# Needed to install the 'pg' gem` \
   software-properties-common \
   unzip \
   zip \
-  zlib1g-dev `# needed for 'nokogiri' gem` \
+  zlib1g-dev `# Needed to build the nokogiri version of libxml2` \
   && rm -rf /var/lib/apt/lists/* \
   && apt-get clean \
   && update-ca-certificates
