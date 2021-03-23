@@ -16,7 +16,7 @@ RUN apt-get install -y \
   libcurl4-openssl-dev `# Needed to pull in libcurl4 for curl installation and enable to openssl TLS backend` \
   libmagickcore-dev \
   libmagickwand-dev \
-  libpq-dev `# Needed to provide libpq-fe.h header to build 'pg' gem native extensions` \
+  libpq-dev `# Needed for 'pg' gem` \
   software-properties-common \
   unzip \
   zip \
