@@ -4,7 +4,7 @@ LABEL maintainer="kevin.olbrich@mckesson.com"
 
 # Misc.
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends tzdata
-RUN apt-get install -y --fix-missing \
+RUN apt update && apt-get install -y --fix-missing \
   apt-transport-https \
   build-essential \
   ca-certificates \
