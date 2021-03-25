@@ -9,10 +9,11 @@ RUN chmod a+x ./jdk-6u45-linux-x64.bin
 RUN ./jdk-6u45-linux-x64.bin \
   && rm ./jdk-6u45-linux-x64.bin
 # Java test runner
-RUN apt-get update \
-  && apt-get install -y ant \
-  && rm -rf /var/lib/apt/lists/* \
-  && apt-get clean
+ENV ANT_HOME=/apache-ant-1.9.6
+ENV PATH="${ANT_HOME}/bin:${PATH}"
+COPY ./src/apache-ant-1.9.6-bin.zip .
+RUN unzip apache-ant-1.9.6-bin.zip
+  && rm ./apache-ant-1.9.6-bin.zip
 
 RUN apt-get update \
   && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends tzdata \
