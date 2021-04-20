@@ -66,7 +66,7 @@ RUN curl -SLfO https://raw.githubusercontent.com/fullstaq-labs/fullstaq-ruby-ser
   && echo 'gem: --no-document' >> ~/.gemrc
 ENV PATH /usr/lib/fullstaq-ruby/versions/${RUBY_VERSION}/bin/:$PATH
 
-ENV NODE_VERSION 14.16.0
+ENV NODE_VERSION 14.16.1
 ENV DEB_FILE nodejs_$NODE_VERSION-1nodesource1_amd64.deb
 RUN curl -sLO "https://deb.nodesource.com/node_14.x/pool/main/n/nodejs/${DEB_FILE}" \
   && apt-get update \
@@ -76,7 +76,7 @@ RUN curl -sLO "https://deb.nodesource.com/node_14.x/pool/main/n/nodejs/${DEB_FIL
   && apt-get clean
 
 # Yarn
-ENV YARN_VERSION 1.22.5
+ENV YARN_VERSION 1.22.10
 RUN curl -SL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
   && echo "deb https://dl.yarnpkg.com/debian/ stable main" > /etc/apt/sources.list.d/yarn.list \
   && apt-get update \
@@ -85,10 +85,10 @@ RUN curl -SL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
   && apt-get clean
 
 # Ruby gems & bundler
-ENV BUNDLER_VERSION 2.2.15
+ENV BUNDLER_VERSION 2.2.16
 RUN gem install bundler:$BUNDLER_VERSION
 
-ENV CHROMEDRIVER_VERSION 89.0.4389.23
+ENV CHROMEDRIVER_VERSION 90.0.4430.24
 RUN curl -O https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip \
   && unzip chromedriver_linux64.zip -d /usr/local/bin \
   && rm chromedriver_linux64.zip
