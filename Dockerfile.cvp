@@ -76,7 +76,7 @@ RUN curl -sLO "https://deb.nodesource.com/node_14.x/pool/main/n/nodejs/${DEB_FIL
   && apt-get clean
 
 # Yarn
-ENV YARN_VERSION 1.22.10
+ENV YARN_VERSION 1.22.5
 RUN curl -SL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
   && echo "deb https://dl.yarnpkg.com/debian/ stable main" > /etc/apt/sources.list.d/yarn.list \
   && apt-get update \
