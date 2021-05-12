@@ -34,7 +34,7 @@ RUN curl --compressed -L --output dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.g
   && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
   && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
-ENV CHROMEDRIVER_VERSION 89.0.4389.23
+ENV CHROMEDRIVER_VERSION 90.0.4430.24
 RUN curl -O https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
 RUN unzip chromedriver_linux64.zip -d /usr/local/bin && rm chromedriver_linux64.zip
 
@@ -61,7 +61,7 @@ RUN curl -SLfO https://raw.githubusercontent.com/fullstaq-labs/fullstaq-ruby-ser
 ENV PATH /usr/lib/fullstaq-ruby/versions/2.6/bin/:$PATH
 
 # Node
-ENV NODE_VERSION 10.24.0
+ENV NODE_VERSION 12.22.1
 ENV DEB_FILE nodejs_$NODE_VERSION-1nodesource1_amd64.deb
 RUN curl -sLO "https://deb.nodesource.com/node_10.x/pool/main/n/nodejs/${DEB_FILE}" \
   && apt-get install -y ./$DEB_FILE \
@@ -80,5 +80,5 @@ RUN curl --compressed -L https://codeclimate.com/downloads/test-reporter/test-re
 
 # Bundler
 RUN echo 'gem: --no-document' >> ~/.gemrc
-ENV BUNDLER_VERSION 2.2.15
+ENV BUNDLER_VERSION 2.2.17
 RUN gem install bundler:$BUNDLER_VERSION
