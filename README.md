@@ -7,12 +7,13 @@ The naming convention is as follows (alphabetically increasing city names):
 
 | Name:tag          | Ruby  | Rubygems | Bundler |  Node   |  Yarn  | chromedriver  |
 |-------------------|------:|---------:|--------:|--------:|-------:|--------------:|
-| 2021.02.01-cvp    | 2.6.x |  3.1.4   |  2.2.7  | 14.15.4 | 1.22.5 | 88.0.4324.96  |
-| 2021.02.01-cds    | 2.6.x |  3.1.4   |  2.2.7  | 10.23.2 | 1.22.5 | 88.0.4324.96  |
-| 2021.02.01-quill  | 2.7.x |  3.1.4   |  2.2.7  | 14.15.4 | 1.22.5 | 88.0.4324.96  |
-| 2021.03.18-cds    | 2.6.x |  3.0.3   |  2.2.14 | 10.24.0 | 1.22.5 | 89.0.4389.23  |
+| 2021.06.03-cds    | 2.6.7 |  3.0.3.1 |  2.2.17 | 12.22.1 | 1.22.5 |  91.0.4472.19 |
+| 2021.06.03-cvp    | 2.6.7 |  3.0.3.1 |  2.2.17 | 14.17.0 | 1.22.5 |  91.0.4472.19 |
+| 2021.06.03-quill  | 2.7.3 |  3.1.6   |  2.2.17 | 14.17.0 | 1.22.5 |  91.0.4472.19 |
+
 
 2021.03.18-chefdk only provides chefdk 1.6.11, which has an old version of embedded ruby (2.3.5).
+2021.03.18-chefdk also includes rubygems 2.6.14 and bundler 1.16.0
 
 Note:  Going forward, our server instances will use the version of rubygems that is provided by FullStaq ruby.
 
