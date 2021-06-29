@@ -7,7 +7,7 @@ The naming convention is as follows (alphabetically increasing city names):
 
 | Name:tag          | Ruby  | Rubygems | Bundler |  Node   |  Yarn  | chromedriver  |
 |-------------------|------:|---------:|--------:|--------:|-------:|--------------:|
-| 2021.06.03-cds    | 2.6.7 |  3.0.3.1 |  2.2.17 | 12.22.1 | 1.22.5 |  91.0.4472.19 |
+| 2021.06.29-cds    | 2.7.3 |  3.0.3.1 |  2.2.21 | 12.22.1 | 1.22.5 |  91.0.4472.101 |
 | 2021.06.03-cvp    | 2.6.7 |  3.0.3.1 |  2.2.17 | 14.17.0 | 1.22.5 |  91.0.4472.19 |
 | 2021.06.03-quill  | 2.7.3 |  3.1.6   |  2.2.17 | 14.17.0 | 1.22.5 |  91.0.4472.19 |
 
@@ -38,12 +38,12 @@ To Prepare a New Image
 6. When the image loads, confirm the resource versions.
 7. Open a GitHub pull request for the branch, get reviews and then merge to master.
 8. Create and tag a new release note. In order to make explicit the repo associated with the new image, use this tagging convention:  <date>-<repo abbreviation>. E.g., 2021.01.29-cvp, 2021.01.29-cds, 2021.01.29-quill.
-  
+
 
 A Note to PR Reviewers
 ----------------------
 
-Because version changes for resources in the Dockerfile are not necessarily between versions for the same repository.  For example, if an image is being made for CDS Tools, the delta between CDS Tools and Quill would be different that the delta between CDS Tools and CVP. 
+Because version changes for resources in the Dockerfile are not necessarily between versions for the same repository.  For example, if an image is being made for CDS Tools, the delta between CDS Tools and Quill would be different that the delta between CDS Tools and CVP.
 
 
 Java JDK
