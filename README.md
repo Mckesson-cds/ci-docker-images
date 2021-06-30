@@ -52,3 +52,13 @@ Java JDK
 The JDK download is here:
 
 http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase6-419409.html
+
+
+ChefDK
+------
+
+OpsWorks requires that we use a very old version of ChefDK (1.6.11).
+
+Download link:
+
+https://downloads.chef.io/tools/download/chefdk?download=https://packages.chef.io/files/stable/chefdk/1.6.11/mac_os_x/10.13/chefdk-1.6.11-1.dmg&os=macOS%2010.13&version=1.6.11
