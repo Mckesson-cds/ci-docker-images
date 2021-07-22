@@ -88,7 +88,7 @@ RUN curl -SL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
 ENV BUNDLER_VERSION 2.2.17
 RUN gem install bundler:$BUNDLER_VERSION
 
-ENV CHROMEDRIVER_VERSION 91.0.4472.19
+ENV CHROMEDRIVER_VERSION 91.0.4472.101
 RUN curl -O https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip \
   && unzip chromedriver_linux64.zip -d /usr/local/bin \
   && rm chromedriver_linux64.zip
