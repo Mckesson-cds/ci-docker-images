@@ -55,7 +55,7 @@ RUN curl --compressed -L --output /usr/local/bin/phantomjs https://s3.amazonaws.
   && chmod a+x /usr/local/bin/phantomjs
 
 # Ruby
-ENV RUBY_VERSION 2.6
+ENV RUBY_VERSION 2.7
 RUN echo 'deb https://apt.fullstaqruby.org ubuntu-18.04 main' > /etc/apt/sources.list.d/fullstaq-ruby.list
 RUN curl -SLfO https://raw.githubusercontent.com/fullstaq-labs/fullstaq-ruby-server-edition/main/fullstaq-ruby.asc \
   && apt-key add fullstaq-ruby.asc \
