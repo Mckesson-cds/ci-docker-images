@@ -55,7 +55,7 @@ RUN curl --compressed -L --output /usr/local/bin/phantomjs https://s3.amazonaws.
   && chmod a+x /usr/local/bin/phantomjs
 
 # Ruby
-ENV RUBY_VERSION 2.6
+ENV RUBY_VERSION 2.7
 RUN echo 'deb https://apt.fullstaqruby.org ubuntu-18.04 main' > /etc/apt/sources.list.d/fullstaq-ruby.list
 RUN curl -SLfO https://raw.githubusercontent.com/fullstaq-labs/fullstaq-ruby-server-edition/main/fullstaq-ruby.asc \
   && apt-key add fullstaq-ruby.asc \
@@ -66,7 +66,7 @@ RUN curl -SLfO https://raw.githubusercontent.com/fullstaq-labs/fullstaq-ruby-ser
   && echo 'gem: --no-document' >> ~/.gemrc
 ENV PATH /usr/lib/fullstaq-ruby/versions/${RUBY_VERSION}/bin/:$PATH
 
-ENV NODE_VERSION 14.17.0
+ENV NODE_VERSION 14.17.4
 ENV DEB_FILE nodejs_$NODE_VERSION-1nodesource1_amd64.deb
 RUN curl -sLO "https://deb.nodesource.com/node_14.x/pool/main/n/nodejs/${DEB_FILE}" \
   && apt-get update \
@@ -85,10 +85,10 @@ RUN curl -SL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
   && apt-get clean
 
 # Ruby gems & bundler
-ENV BUNDLER_VERSION 2.2.17
+ENV BUNDLER_VERSION 2.2.25
 RUN gem install bundler:$BUNDLER_VERSION
 
-ENV CHROMEDRIVER_VERSION 91.0.4472.19
+ENV CHROMEDRIVER_VERSION 92.0.4515.107
 RUN curl -O https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip \
   && unzip chromedriver_linux64.zip -d /usr/local/bin \
   && rm chromedriver_linux64.zip
