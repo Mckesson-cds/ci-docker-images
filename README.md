@@ -29,7 +29,7 @@ To Create New Images
 
 1. git co -b <JIRA ticket ID>
 2. Edit this README.md. Document the new image resource versions above.
-3. Make the version changes in the Dockerfile. Update the README.md file.  NOTE: Check http://chromedriver.chromium.org/home to determine the current stable chromedriver versioWe only specify the major and minor version for the ruby version. The version that is built into docker images is whatever the most recent patchlevel release is available from the FullStaq ruby repository. This same is true for our production server instances. When new instances are made, they get the latest ruby patchlevel version available. 
+3. Make the version changes in the Dockerfile. Update the README.md file.  NOTE: Check http://chromedriver.chromium.org/home to determine the current stable chromedriver version. We only specify the major and minor version for the ruby version. The version that is built into docker images is whatever the most recent patchlevel release is available from the FullStaq ruby repository. The same is true for our production server instances. When new instances are made, they get the latest ruby patchlevel version available. 
 4. To create an image, follow this example:  `docker build -f Dockerfile.chefdk -t mckessoncds/ci-docker-images:2021.08.04-chefdk .`
    NOTE:  Tag in the form <date>-<cvp, cds, quill or chefdk>
 5. Test the image, checking the versions:  `docker run -it <image tag>`
