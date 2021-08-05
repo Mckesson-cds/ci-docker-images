@@ -89,5 +89,5 @@ RUN curl -SO https://dl.google.com/linux/direct/google-chrome-stable_current_amd
   && apt-get clean
 
 # CodeClimate
-RUN curl --compressed -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > /usr/local/bin/cc-test-reporter \
-  && chmod a+x /usr/local/bin/cc-test-reporter
+RUN curl --compressed -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > /usr/local/bin/cc-test-reporter
+RUN chmod a+x /usr/local/bin/cc-test-reporter

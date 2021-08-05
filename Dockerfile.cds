@@ -82,8 +82,8 @@ RUN curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
   && apt-get install yarn=$YARN_VERSION-1
 
 # CodeClimate
-RUN curl --compressed -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > /usr/local/bin/cc-test-reporter \
-  && chmod a+x /usr/local/bin/cc-test-reporter
+RUN curl --compressed -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > /usr/local/bin/cc-test-reporter
+RUN chmod a+x /usr/local/bin/cc-test-reporter
 
 # Bundler
 RUN echo 'gem: --no-document' >> ~/.gemrc
