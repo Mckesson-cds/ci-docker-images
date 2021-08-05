@@ -1,11 +1,17 @@
 FROM ubuntu:18.04
 LABEL maintainer="kevin.olbrich@mckesson.com"
 
+ENV DEBIAN_FRONTEND noninteractive
+
+# Add McKesson root certificate to cert chain
+COPY ./src/McKesson_root.crt /usr/local/share/ca-certificates/
 
 # Misc.
-RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends tzdata
-RUN apt update && apt-get install -y --fix-missing \
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends tzdata \
+  && apt-get install -y --fix-missing \
   apt-transport-https \
+  apt-utils `# Wanted by debconf for package configuration` \
   build-essential \
   ca-certificates \
   curl \
@@ -16,6 +22,7 @@ RUN apt update && apt-get install -y --fix-missing \
   libcurl4-openssl-dev `# Needed to pull in libcurl4 for curl installation and enable to openssl TLS backend` \
   libmagickcore-dev `# Needed by rmagick` \
   libmagickwand-dev `# Needed by rmagick` \
+  libnss3 `# Needed by chromedriver` \
   libpq-dev `# Needed to install the 'pg' gem` \
   software-properties-common \
   unzip \
@@ -34,9 +41,9 @@ RUN curl --compressed -L --output dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.g
   && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
   && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
-ENV CHROMEDRIVER_VERSION 91.0.4472.101
-RUN curl -O https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
-RUN unzip chromedriver_linux64.zip -d /usr/local/bin && rm chromedriver_linux64.zip
+ENV CHROMEDRIVER_VERSION 92.0.4515.107
+RUN curl -O https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip \
+  && unzip chromedriver_linux64.zip -d /usr/local/bin && rm chromedriver_linux64.zip
 
 # Install the latest stable Chrome
 RUN curl -SO https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
@@ -53,15 +60,15 @@ RUN curl --compressed -L --output /usr/local/bin/phantomjs https://s3.amazonaws.
 
 # Ruby
 ENV RUBY_VERSION 2.7
-RUN echo 'deb https://apt.fullstaqruby.org ubuntu-18.04 main' > /etc/apt/sources.list.d/fullstaq-ruby.list
-RUN curl -SLfO https://raw.githubusercontent.com/fullstaq-labs/fullstaq-ruby-server-edition/main/fullstaq-ruby.asc \
+RUN echo 'deb https://apt.fullstaqruby.org ubuntu-18.04 main' > /etc/apt/sources.list.d/fullstaq-ruby.list \
+  && curl -SLfO https://raw.githubusercontent.com/fullstaq-labs/fullstaq-ruby-server-edition/main/fullstaq-ruby.asc \
   && apt-key add fullstaq-ruby.asc \
   && apt-get update \
   && apt-get install -y fullstaq-ruby-common fullstaq-ruby-$RUBY_VERSION
 ENV PATH /usr/lib/fullstaq-ruby/versions/2.7/bin/:$PATH
 
 # Node
-ENV NODE_VERSION 12.22.1
+ENV NODE_VERSION 12.22.4
 ENV DEB_FILE nodejs_$NODE_VERSION-1nodesource1_amd64.deb
 RUN curl -sLO "https://deb.nodesource.com/node_12.x/pool/main/n/nodejs/${DEB_FILE}" \
   && apt-get install -y ./$DEB_FILE \
@@ -75,10 +82,10 @@ RUN curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
   && apt-get install yarn=$YARN_VERSION-1
 
 # CodeClimate
-RUN curl --compressed -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > /usr/local/bin/cc-test-reporter \
-  && chmod a+x /usr/local/bin/cc-test-reporter
+RUN curl --compressed -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > /usr/local/bin/cc-test-reporter
+RUN chmod a+x /usr/local/bin/cc-test-reporter
 
 # Bundler
 RUN echo 'gem: --no-document' >> ~/.gemrc
-ENV BUNDLER_VERSION 2.2.21
+ENV BUNDLER_VERSION 2.2.25
 RUN gem install bundler:$BUNDLER_VERSION

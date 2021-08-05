@@ -1,20 +1,27 @@
 FROM ubuntu:18.04
 LABEL maintainer="kevin.olbrich@mckesson.com"
 
+ENV DEBIAN_FRONTEND noninteractive
+
 RUN apt-get update \
-  && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends tzdata \
+  && apt-get install -y --no-install-recommends tzdata \
   && rm -rf /var/lib/apt/lists/* \
   && apt-get clean
+
+# Add McKesson root certificate to cert chain
+COPY ./src/McKesson_root.crt /usr/local/share/ca-certificates/
 
 RUN apt-get update \
   && apt-get install -y \
   apt-transport-https \
+  apt-utils \
   build-essential \
   ca-certificates \
   curl \
   git \
   jq \
   libcurl4-openssl-dev `# Needed to pull in libcurl4 for curl installation and enable to openssl TLS backend` \
+  libnss3 `# Needed by chromedriver` \
   libpq-dev `# Needed to install the 'pg' gem` \
   software-properties-common \
   unzip \
@@ -46,7 +53,7 @@ RUN curl -SLfO https://raw.githubusercontent.com/fullstaq-labs/fullstaq-ruby-ser
   && echo 'gem: --no-document' >> ~/.gemrc
 ENV PATH /usr/lib/fullstaq-ruby/versions/${RUBY_VERSION}/bin/:$PATH
 
-ENV NODE_VERSION 14.17.0
+ENV NODE_VERSION 14.17.4
 ENV DEB_FILE nodejs_$NODE_VERSION-1nodesource1_amd64.deb
 RUN curl -sLO "https://deb.nodesource.com/node_14.x/pool/main/n/nodejs/${DEB_FILE}" \
   && apt-get update \
@@ -65,10 +72,10 @@ RUN curl -SL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
   && apt-get clean
 
 # Ruby gems & bundler
-ENV BUNDLER_VERSION 2.2.17
+ENV BUNDLER_VERSION 2.2.25
 RUN gem install bundler:$BUNDLER_VERSION
 
-ENV CHROMEDRIVER_VERSION 91.0.4472.19
+ENV CHROMEDRIVER_VERSION 92.0.4515.107
 RUN curl -O https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip \
   && unzip chromedriver_linux64.zip -d /usr/local/bin \
   && rm chromedriver_linux64.zip
@@ -82,5 +89,5 @@ RUN curl -SO https://dl.google.com/linux/direct/google-chrome-stable_current_amd
   && apt-get clean
 
 # CodeClimate
-RUN curl --compressed -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > /usr/local/bin/cc-test-reporter \
-  && chmod a+x /usr/local/bin/cc-test-reporter
+RUN curl --compressed -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > /usr/local/bin/cc-test-reporter
+RUN chmod a+x /usr/local/bin/cc-test-reporter

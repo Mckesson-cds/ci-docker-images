@@ -1,6 +1,11 @@
 FROM ubuntu:16.04
 LABEL maintainer="kevin.olbrich@mckesson.com"
 
+ENV DEBIAN_FRONTEND noninteractive
+
+# Add McKesson root certificate to cert chain
+COPY ./src/McKesson_root.crt /usr/local/share/ca-certificates/
+
 # Misc.
 RUN apt-get update && apt-get install -y \
   apt-transport-https \
@@ -32,9 +37,9 @@ RUN curl --compressed -L --output chefdk_$CHEFDK_VERSION-1_amd64.deb https://pac
   && dpkg -i chefdk_$CHEFDK_VERSION-1_amd64.deb \
   && rm chefdk_$CHEFDK_VERSION-1_amd64.deb
 
-RUN echo 'eval "$(chef shell-init bash)"' >> ~/.bash_profile
-RUN echo 'eval "$(chef shell-init bash)"' >> ~/.bashrc
+RUN echo 'eval "$(chef shell-init bash)"' >> ~/.bash_profile \
+  && echo 'eval "$(chef shell-init bash)"' >> ~/.bashrc
 
 # CodeClimate
-RUN curl --compressed -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > /usr/local/bin/cc-test-reporter \
-  && chmod a+x /usr/local/bin/cc-test-reporter
+RUN curl --compressed -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > /usr/local/bin/cc-test-reporter
+RUN chmod a+x /usr/local/bin/cc-test-reporter
