@@ -11,7 +11,7 @@ To Create and Upload New Image(s)
 7. To push the new image(s) to hub.docker.com, run `docker push mckessoncds/ci-docker-images:<image tag>`
 8. Create and merge a PR, and then tag a Github and Jira release
 
-Docker Images for CI
+Current Docker Images for CircleCI
 ----------------
 
 These are [public images](https://hub.docker.com/r/mckessoncds/ci-docker-images) to run CI (continuous integration) building and testing for an Ruby/Node application. The intention is create baseline images that CI will use to run and test our application. These images have the required language support (Ruby, Node), and required test tools (ChefDK, phantomjs, codeclimate).
