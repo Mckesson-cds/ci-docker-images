@@ -4,11 +4,10 @@
 2. Edit this README.md. Document the new image resource versions above.
 3. Make the version changes in the Dockerfile. NOTE: Check http://chromedriver.chromium.org/home to determine the current stable chromedriver version. We only specify the major and minor version for the ruby version. The version that is built into docker images is whatever the most recent patchlevel release is available from the FullStaq ruby repository. The same is true for our production server instances. When new instances are made, they get the latest ruby patchlevel version available.
 4. To create an image, follow this example: `docker build -f Dockerfile.chefdk -t mckessoncds/ci-docker-images:2021.08.04-chefdk .`
-   NOTE: Tag in the form \<date>-<cvp, cds, quill or chefdk>
+   <br />NOTE: Tag in the form \<date>-<cvp, cds, quill or chefdk>
 5. Test the image, checking the versions: `docker run -it mckessoncds/ci-docker-images:<image tag> /bin/bash`
-6. If the image changes are correct, create a pull request and get it merged, and then tag a github release note.
-7. To push the new image(s) to hub.docker.com, run `docker push mckessoncds/ci-docker-images:<image tag>`
-8. Create and merge a PR, and then tag a Github and Jira release
+6. To push the new image(s) to hub.docker.com, run `docker push mckessoncds/ci-docker-images:<image tag>`
+7. Create and merge a PR, and then tag a Github and Jira release
 
 ## Current Docker Images for CircleCI
 
