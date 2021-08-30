@@ -68,7 +68,7 @@ RUN echo 'deb https://apt.fullstaqruby.org ubuntu-18.04 main' > /etc/apt/sources
 ENV PATH /usr/lib/fullstaq-ruby/versions/2.7/bin/:$PATH
 
 # Node
-ENV NODE_VERSION 12.22.4
+ENV NODE_VERSION 12.22.5
 ENV DEB_FILE nodejs_$NODE_VERSION-1nodesource1_amd64.deb
 RUN curl -sLO "https://deb.nodesource.com/node_12.x/pool/main/n/nodejs/${DEB_FILE}" \
   && apt-get install -y ./$DEB_FILE \
