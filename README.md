@@ -3,7 +3,7 @@
 1. git co -b \<JIRA ticket ID>
 2. Edit this README.md. Document the new image resource versions above.
 3. Make the version changes in the Dockerfile. NOTE: Check http://chromedriver.chromium.org/home to determine the current stable chromedriver version. We only specify the major and minor version for the ruby version. The version that is built into docker images is whatever the most recent patchlevel release is available from the FullStaq ruby repository. The same is true for our production server instances. When new instances are made, they get the latest ruby patchlevel version available.
-4. To create an image, follow this example: <br />`docker build -f Dockerfile.chefdk -t mckessoncds/ci-docker-images:2021.08.04-chefdk .` <br />NOTE: Tag in the form \<date>-<cvp, cds, quill or chefdk>
+4. To create an image, follow this example: <br />`docker build -f Dockerfile.<env> -t mckessoncds/ci-docker-images:<image tag> .` <br />NOTE: Tag in the form \<date>-<cvp, cds, quill or chefdk>
 5. Test the image, checking the versions: `docker run -it mckessoncds/ci-docker-images:<image tag> /bin/bash`
 6. To push the new image(s) to hub.docker.com, run `docker push mckessoncds/ci-docker-images:<image tag>`
 7. Create and merge a PR, and then tag a Github and Jira release
@@ -17,7 +17,7 @@ The naming convention is as follows (alphabetically increasing city names):
 |          Name:tag |  Ruby | Rubygems | Bundler |    Node |   Yarn |  chromedriver |
 | ----------------: | ----: | -------: | ------: | ------: | -----: | ------------: |
 |    2021.08.30-cds | 2.7.x |    3.1.6 |  2.2.25 | 12.22.5 | 1.22.5 | 92.0.4515.107 |
-|    2021.08.04-cvp | 2.7.x |    3.1.6 |  2.2.25 | 14.17.4 | 1.22.5 | 92.0.4515.107 |
+|    2021.09.01-cvp | 2.7.x |    3.1.6 |  2.2.25 | 14.17.5 | 1.22.5 | 92.0.4515.107 |
 |  2021.08.26-quill | 2.7.x |    3.1.6 |  2.2.25 | 14.17.5 | 1.22.5 | 92.0.4515.107 |
 | 2021.08.04-chefdk | 2.3.5 |   2.6.14 |  1.16.0 |         |        |               |
 
