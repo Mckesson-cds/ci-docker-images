@@ -73,7 +73,7 @@ RUN curl -SLfO https://raw.githubusercontent.com/fullstaq-labs/fullstaq-ruby-ser
   && echo 'gem: --no-document' >> ~/.gemrc
 ENV PATH /usr/lib/fullstaq-ruby/versions/${RUBY_VERSION}/bin/:$PATH
 
-ENV NODE_VERSION 14.17.5
+ENV NODE_VERSION 14.17.6
 ENV DEB_FILE nodejs_$NODE_VERSION-1nodesource1_amd64.deb
 RUN curl -sLO "https://deb.nodesource.com/node_14.x/pool/main/n/nodejs/${DEB_FILE}" \
   && apt-get update \
@@ -95,7 +95,7 @@ RUN curl -SL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
 ENV BUNDLER_VERSION 2.2.25
 RUN gem install bundler:$BUNDLER_VERSION
 
-ENV CHROMEDRIVER_VERSION 92.0.4515.107
+ENV CHROMEDRIVER_VERSION 93.0.4577.63
 RUN curl -O https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip \
   && unzip chromedriver_linux64.zip -d /usr/local/bin \
   && rm chromedriver_linux64.zip
