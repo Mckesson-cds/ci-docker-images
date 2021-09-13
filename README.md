@@ -16,9 +16,9 @@ The naming convention is as follows (alphabetically increasing city names):
 
 |          Name:tag |  Ruby | Rubygems | Bundler |    Node |   Yarn |  chromedriver |
 | ----------------: | ----: | -------: | ------: | ------: | -----: | ------------: |
-|    2021.08.30-cds | 2.7.x |    3.1.6 |  2.2.25 | 12.22.5 | 1.22.5 | 92.0.4515.107 |
-|    2021.09.01-cvp | 2.7.x |    3.1.6 |  2.2.25 | 14.17.5 | 1.22.5 | 92.0.4515.107 |
-|  2021.08.26-quill | 2.7.x |    3.1.6 |  2.2.25 | 14.17.5 | 1.22.5 | 92.0.4515.107 |
+|    2021.09.13-cds | 2.7.x |    3.1.6 |  2.2.25 | 12.22.6 | 1.22.5 |  93.0.4577.63 |
+|    2021.09.13-cvp | 2.7.x |    3.1.6 |  2.2.25 | 14.17.6 | 1.22.5 |  93.0.4577.63 |
+|  2021.09.13-quill | 2.7.x |    3.1.6 |  2.2.25 | 14.17.6 | 1.22.5 |  93.0.4577.63 |
 | 2021.08.04-chefdk | 2.3.5 |   2.6.14 |  1.16.0 |         |        |               |
 
 Note: Going forward, our server instances will use the version of rubygems that is provided by FullStaq ruby.

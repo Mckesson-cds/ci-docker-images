@@ -41,7 +41,7 @@ RUN curl --compressed -L --output dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.g
   && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
   && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
-ENV CHROMEDRIVER_VERSION 92.0.4515.107
+ENV CHROMEDRIVER_VERSION 93.0.4577.63
 RUN curl -O https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip \
   && unzip chromedriver_linux64.zip -d /usr/local/bin && rm chromedriver_linux64.zip
 
@@ -68,7 +68,7 @@ RUN echo 'deb https://apt.fullstaqruby.org ubuntu-18.04 main' > /etc/apt/sources
 ENV PATH /usr/lib/fullstaq-ruby/versions/2.7/bin/:$PATH
 
 # Node
-ENV NODE_VERSION 12.22.5
+ENV NODE_VERSION 12.22.6
 ENV DEB_FILE nodejs_$NODE_VERSION-1nodesource1_amd64.deb
 RUN curl -sLO "https://deb.nodesource.com/node_12.x/pool/main/n/nodejs/${DEB_FILE}" \
   && apt-get install -y ./$DEB_FILE \
