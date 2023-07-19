@@ -1,3 +1,12 @@
+
+## NOTICE 
+
+*CDS Images are stored in JFROG*
+
+These will be moved into their respective applications when we move into Enterprise Github. CI/CD will be moved into Github Actions and this repo will be archived.
+
+***
+# OLD INSTRUCTIONS - NOT CURRENT
 ## To Create and Upload New Image(s)
 
 1. git co -b \<JIRA ticket ID>
