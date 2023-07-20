@@ -6,8 +6,22 @@
 These will be moved into their respective applications when we move into Enterprise Github. CI/CD will be moved into Github Actions and this repo will be archived.
 
 JFrog Deploy Prerequisties
-1. McKesson email or dID
-2. JFrog API Key enabled for that ID
+- McKesson email or dID
+- JFrog API Key enabled for that ID
+
+To Enable a dID:
+
+- In an incognito window go here https://mck.jfrog.io/ui/login/
+- click on the SSO button  Image
+- in the Okta window enter your DID email
+- It will then ask for the OTP Passcode, use MckOkta to get this i.e. get-otp-passcode
+- Now you should be logged into JFrog with the DID
+- Top right, click on the DID email and go to Edit Profile, here’s a screenshot from my personal account Image
+- Now you can generate an API Key or an Identity Token
+
+The process is similar in JFrog for our McK emails.
+ 
+ Also see the 'Onboarding the Service User' Section of [Azure Standup](https://knowledge.mckessonspecialtyhealth.com/confluence/display/CDS/Stand+up+an+Application+in+Azure) for more information about using McKOkta. (VPN Required)
 
 1. Log into the repository using `docker login mck-cds.jfrog.io`, this will prompt you for the credentials.
 
@@ -40,15 +54,16 @@ These are [public images](https://hub.docker.com/r/mckessoncds/ci-docker-images)
 
 The naming convention is as follows (alphabetically increasing city names):
 
-|          Name:tag |  Ruby | Rubygems | Bundler |    Node |   Yarn  |  chromedriver |
-| ----------------: | ----: | -------: | ------: | ------: |  -----: | ------------: |
-|    2021.09.13-cds | 2.7.7 |    3.1.6 |  2.3.26 | 12.22.6 | 1.22.5  |  93.0.4577.63 |
-|    2021.09.13-cvp | 2.7.7 |    3.1.6 |  2.3.26 | 16.19.1 | 1.22.19 |  93.0.4577.63 |
-|  2021.09.13-quill | 2.7.7 |    3.1.6 |  2.3.26 | 16.19.1 | 1.22.19 |  93.0.4577.63 |
-| 2021.08.04-chefdk | 2.3.5 |   2.6.14 |  1.16.0 |         |         |               |
+|          Name:tag  |  Ruby | Rubygems | Bundler |    Node  |   Yarn  |  chromedriver |
+| ----------------:  | ----: | -------: | ------: | ------:  |  -----: | ------------: |
+|    2021.09.13-cds  | 2.7.7 |    3.1.6 |  2.3.26 | 12.22.12 | 1.22.19 |  93.0.4577.63 |
+|    2021.09.13-cvp  | 2.7.7 |    3.1.6 |  2.3.26 | 16.19.1  | 1.22.19 |  93.0.4577.63 |
+|  2021.09.13-quill  | 2.7.7 |    3.1.6 |  2.3.26 | 16.19.1  | 1.22.19 |  93.0.4577.63 |
+| 2021.08.04-chefdk* | 2.3.5 |   2.6.14 |  1.16.0 |          |         |               |
 
 Note: Going forward, our server instances will use the version of rubygems that is provided by FullStaq ruby.
 
+*Appears to be used as of July 2023 at least.
 ## Docker for Mac
 
 https://store.docker.com/editions/community/docker-ce-desktop-mac
