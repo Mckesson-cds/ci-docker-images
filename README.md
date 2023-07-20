@@ -1,12 +1,26 @@
 
 ## NOTICE 
 
-*CDS Images are stored in JFROG, you must be a member of the ontada-cds group to access them*
+**CDS Images are stored in JFROG, you must be a member of the ontada-cds group to access them**
 
 These will be moved into their respective applications when we move into Enterprise Github. CI/CD will be moved into Github Actions and this repo will be archived.
 
+JFrog Deploy Prerequisties
+1. McKesson email or dID
+2. JFrog API Key enabled for that ID
 
-Dockerfile.chefdk does not appear to be in use.
+1. Log into the repository using `docker login mck-cds.jfrog.io`, this will prompt you for the credentials.
+
+2. All these images live in the same repository, to pull the image, use `docker pull mck-cds.jfrog.io/cds:<image-name>`
+
+3. Once you make the necessary changes, push a new image back using `docker build -f Dockerfile.<app_name> -t <YYYY-MM-DD>-<app_name>`
+
+4. Test the new image using `docker run -it mck-cds.jfrog.io:<image tag> /bin/bash`
+
+5. Then upload it to JFrog with `docker push mck-cds.jfrog.io:<image tag>`
+
+
+_Dockerfile.chefdk does not appear to be in use._
 
 ***
 # OLD INSTRUCTIONS - NOT CURRENT
@@ -26,12 +40,12 @@ These are [public images](https://hub.docker.com/r/mckessoncds/ci-docker-images)
 
 The naming convention is as follows (alphabetically increasing city names):
 
-|          Name:tag |  Ruby | Rubygems | Bundler |    Node |   Yarn |  chromedriver |
-| ----------------: | ----: | -------: | ------: | ------: | -----: | ------------: |
-|    2021.09.13-cds | 2.7.x |    3.1.6 |  2.2.25 | 12.22.6 | 1.22.5 |  93.0.4577.63 |
-|    2021.09.13-cvp | 2.7.x |    3.1.6 |  2.2.25 | 14.17.6 | 1.22.5 |  93.0.4577.63 |
-|  2021.09.13-quill | 2.7.x |    3.1.6 |  2.2.25 | 14.17.6 | 1.22.5 |  93.0.4577.63 |
-| 2021.08.04-chefdk | 2.3.5 |   2.6.14 |  1.16.0 |         |        |               |
+|          Name:tag |  Ruby | Rubygems | Bundler |    Node |   Yarn  |  chromedriver |
+| ----------------: | ----: | -------: | ------: | ------: |  -----: | ------------: |
+|    2021.09.13-cds | 2.7.7 |    3.1.6 |  2.3.26 | 12.22.6 | 1.22.5  |  93.0.4577.63 |
+|    2021.09.13-cvp | 2.7.7 |    3.1.6 |  2.3.26 | 16.19.1 | 1.22.19 |  93.0.4577.63 |
+|  2021.09.13-quill | 2.7.7 |    3.1.6 |  2.3.26 | 16.19.1 | 1.22.19 |  93.0.4577.63 |
+| 2021.08.04-chefdk | 2.3.5 |   2.6.14 |  1.16.0 |         |         |               |
 
 Note: Going forward, our server instances will use the version of rubygems that is provided by FullStaq ruby.
 
