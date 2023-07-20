@@ -1,9 +1,6 @@
 FROM ubuntu:16.04
 LABEL maintainer="ontada-cds@mckesson.com"
 
-# Update ubuntu to LTS Enablement - Supported until Spring 2028, CDS-8287
-RUN sudo apt-get install --install-recommends linux-generic-hwe-16.04
-
 ENV DEBIAN_FRONTEND noninteractive
 
 # Add McKesson root certificate to cert chain
