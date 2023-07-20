@@ -34,8 +34,6 @@ The process is similar in JFrog for our McK emails.
 5. Then upload it to JFrog with `docker push mck-cds.jfrog.io:<image tag>`
 
 
-_Dockerfile.chefdk does not appear to be in use._
-
 ***
 # OLD INSTRUCTIONS - NOT CURRENT
 ## To Create and Upload New Image(s)
@@ -63,7 +61,6 @@ The naming convention is as follows (alphabetically increasing city names):
 
 Note: Going forward, our server instances will use the version of rubygems that is provided by FullStaq ruby.
 
-*Appears to be used as of July 2023 at least.
 ## Docker for Mac
 
 https://store.docker.com/editions/community/docker-ce-desktop-mac
