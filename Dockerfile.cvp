@@ -1,5 +1,5 @@
 FROM ubuntu:18.04
-LABEL maintainer="kevin.olbrich@mckesson.com"
+LABEL maintainer="ontada-cds@mckesson.com"
 
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -62,7 +62,7 @@ RUN curl --compressed -L --output /usr/local/bin/phantomjs https://s3.amazonaws.
   && chmod a+x /usr/local/bin/phantomjs
 
 # Ruby
-ENV RUBY_VERSION 2.7
+ENV RUBY_VERSION 2.7.7
 RUN echo 'deb https://apt.fullstaqruby.org ubuntu-18.04 main' > /etc/apt/sources.list.d/fullstaq-ruby.list
 RUN curl -SLfO https://raw.githubusercontent.com/fullstaq-labs/fullstaq-ruby-server-edition/main/fullstaq-ruby.asc \
   && apt-key add fullstaq-ruby.asc \
@@ -73,9 +73,9 @@ RUN curl -SLfO https://raw.githubusercontent.com/fullstaq-labs/fullstaq-ruby-ser
   && echo 'gem: --no-document' >> ~/.gemrc
 ENV PATH /usr/lib/fullstaq-ruby/versions/${RUBY_VERSION}/bin/:$PATH
 
-ENV NODE_VERSION 14.17.6
+ENV NODE_VERSION 16.19.0
 ENV DEB_FILE nodejs_$NODE_VERSION-1nodesource1_amd64.deb
-RUN curl -sLO "https://deb.nodesource.com/node_14.x/pool/main/n/nodejs/${DEB_FILE}" \
+RUN curl -sLO "https://deb.nodesource.com/node_16.x/pool/main/n/nodejs/${DEB_FILE}" \
   && apt-get update \
   && apt-get install -y ./$DEB_FILE \
   && rm $DEB_FILE \
@@ -83,7 +83,7 @@ RUN curl -sLO "https://deb.nodesource.com/node_14.x/pool/main/n/nodejs/${DEB_FIL
   && apt-get clean
 
 # Yarn
-ENV YARN_VERSION 1.22.5
+ENV YARN_VERSION 1.22.19
 RUN curl -SL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
   && echo "deb https://dl.yarnpkg.com/debian/ stable main" > /etc/apt/sources.list.d/yarn.list \
   && apt-get update \
@@ -92,13 +92,8 @@ RUN curl -SL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
   && apt-get clean
 
 # Ruby gems & bundler
-ENV BUNDLER_VERSION 2.2.25
+ENV BUNDLER_VERSION 2.3.26
 RUN gem install bundler:$BUNDLER_VERSION
-
-ENV CHROMEDRIVER_VERSION 93.0.4577.63
-RUN curl -O https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip \
-  && unzip chromedriver_linux64.zip -d /usr/local/bin \
-  && rm chromedriver_linux64.zip
 
 # Install the latest stable Chrome
 RUN curl -SO https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
@@ -107,6 +102,26 @@ RUN curl -SO https://dl.google.com/linux/direct/google-chrome-stable_current_amd
   && rm google-chrome-stable_current_amd64.deb \
   && rm -rf /var/lib/apt/lists/* \
   && apt-get clean
+
+# previous changes, not removing at this time
+
+# ENV CHROMEDRIVER_VERSION 93.0.4577.63
+# RUN curl -O https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip \
+#   && unzip chromedriver_linux64.zip -d /usr/local/bin \
+#   && rm chromedriver_linux64.zip
+
+# new change pulled from jfrog
+RUN  BROWSER_MAJOR=$(google-chrome --version | sed 's/Google Chrome \([1-9]..\).*/\1/g') && \
+ wget https://chromedriver.storage.googleapis.com/LATEST_RELEASE_${BROWSER_MAJOR} -O chrome_version && \
+ wget https://chromedriver.storage.googleapis.com/`cat chrome_version`/chromedriver_linux64.zip && \
+ unzip chromedriver_linux64.zip && \
+  mv chromedriver /usr/local/bin/ && DRIVER_MAJOR=$(chromedriver --version | sed 's/ChromeDriver \([0-9]..\).*/\1/g') && \
+  echo "chrome version: $BROWSER_MAJOR" && \
+  echo "chromedriver version: $DRIVER_MAJOR" && \
+  if [ $BROWSER_MAJOR != $DRIVER_MAJOR ]; \
+    then echo "VERSION MISMATCH"; \
+    exit 1; \
+  fi 
 
 # CodeClimate
 RUN curl --compressed -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > /usr/local/bin/cc-test-reporter

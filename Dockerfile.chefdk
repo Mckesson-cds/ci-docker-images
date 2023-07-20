@@ -1,5 +1,5 @@
 FROM ubuntu:16.04
-LABEL maintainer="kevin.olbrich@mckesson.com"
+LABEL maintainer="ontada-cds@mckesson.com"
 
 ENV DEBIAN_FRONTEND noninteractive
 
