@@ -1,15 +1,7 @@
-
-## NOTICE 
-
-*CDS Images are stored in JFROG, you must be a member of the ontada-cds group to access them*
-
-These will be moved into their respective applications when we move into Enterprise Github. CI/CD will be moved into Github Actions and this repo will be archived.
+# OLD INSTRUCTIONS - NOT CURRENT see https://github.com/McKesson-Ontada/cds-docker for current setup
 
 
-Dockerfile.chefdk does not appear to be in use.
-
-***
-# OLD INSTRUCTIONS - NOT CURRENT
+# DEPRECATED
 ## To Create and Upload New Image(s)
 
 1. git co -b \<JIRA ticket ID>
