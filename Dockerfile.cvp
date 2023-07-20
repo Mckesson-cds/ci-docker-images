@@ -1,6 +1,9 @@
 FROM ubuntu:18.04
 LABEL maintainer="ontada-cds@mckesson.com"
 
+# Update ubuntu to LTS Enablement - Supported until Spring 2028, CDS-8287
+RUN sudo apt-get install --install-recommends linux-generic-hwe-18.04
+
 ENV DEBIAN_FRONTEND noninteractive
 
 # Java
