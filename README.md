@@ -1,9 +1,12 @@
 
 ## NOTICE 
 
-*CDS Images are stored in JFROG*
+*CDS Images are stored in JFROG, you must be a member of the ontada-cds group to access them*
 
 These will be moved into their respective applications when we move into Enterprise Github. CI/CD will be moved into Github Actions and this repo will be archived.
+
+
+Dockerfile.chefdk does not appear to be in use.
 
 ***
 # OLD INSTRUCTIONS - NOT CURRENT
